@@ -10,3 +10,85 @@
     --color-text: #475467;
     --color-white: #FFFFFF;
 }
+
+/* Мягкий reset - рекомендуемый для React проектов */
+
+/* Нормализация box-sizing */
+html {
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+/* Убираем отступы у основных элементов */
+body, h1, h2, h3, h4, h5, h6, p, ol, ul, figure, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+/* Базовые стили body */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Списки */
+ol, ul {
+    list-style: none;
+}
+
+/* Изображения */
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Формы и кнопки */
+input, button, textarea, select {
+    font: inherit;
+    margin: 0;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Ссылки */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Таблицы */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Убираем стили для fieldset и legend */
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Доступность - убираем outline только если есть focus-visible */
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+select:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible) {
+    outline: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
