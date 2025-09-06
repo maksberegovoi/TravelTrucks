@@ -1,0 +1,28 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+
+}
+
+.link {
+    padding-block: 24px;
+    text-decoration: none;
+}
+
+.link:visited {
+    color: inherit;
+}
+
+.link.active {
+    color: var(--color-button-hover);
+}
+
+.navbar {
+    display: flex;
+    gap: 32px;
+    flex: 1;
+    justify-content: center;
+
+}
