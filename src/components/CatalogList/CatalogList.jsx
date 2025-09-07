@@ -6,7 +6,7 @@ import {
   selectCampersError,
   selectCampersLoading,
 } from "../../redux/campersSlice.js";
-import CamperDetails from "../CamperDetails/CamperCard.jsx";
+import CamperDetails from "../CamperCard/CamperCard.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
 
@@ -27,7 +27,7 @@ const CatalogList = () => {
         {isLoading && <Loader />}
         {campers.map(camper => (
           <li key={camper.id}>
-            <CamperDetails camper={camper} />
+            <CamperDetails camper={camper} variant="catalogPage" />
           </li>
         ))}
       </ul>
