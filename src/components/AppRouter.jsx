@@ -1,14 +1,17 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { publicRoutes } from "../routes/routes.js";
+import Loader from "../UI/Loader/Loader.jsx";
 
 const AppRouter = () => {
   return (
-    <Routes>
-      {publicRoutes.map(({ path, Component }) => (
-        <Route key={path} path={path} element={<Component />} />
-      ))}
-    </Routes>
+    <Suspense fallback={<Loader />}>
+      <Routes>
+        {publicRoutes.map(({ path, Component }) => (
+          <Route key={path} path={path} element={<Component />} />
+        ))}
+      </Routes>
+    </Suspense>
   );
 };
 
