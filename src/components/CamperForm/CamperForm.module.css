@@ -1,0 +1,50 @@
+.formContainer {
+    padding: 44px;
+    border-radius: 10px;
+    border: 1px solid var(--color-gray);
+}
+
+.formCard {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 527px;
+}
+
+.formHeader {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formTitle {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.2; /* 120% */
+}
+
+.formSubtitle {
+    color: var(--color-gray);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.formInput {
+    height: 60px;
+    padding: 18px;
+}
+
+.formTextarea {
+    height: 118px;
+    resize: none;
+    padding: 18px;
+}
+
+.error {
+    color: red;
+}
+

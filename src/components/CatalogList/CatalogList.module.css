@@ -11,4 +11,12 @@
 
 .button {
     margin-top: 40px;
+    color: var(--color-main);
+    background: white;
+    border-radius: 200px;
+    border: 1px solid var(--color-gray-light);
+}
+
+.button:hover {
+    color: var(--color-white);
 }

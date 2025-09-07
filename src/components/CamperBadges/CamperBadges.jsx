@@ -1,11 +1,9 @@
 import styles from "./CamperBadges.module.css";
 import iconTransmission from "../../assets/icons/badges/transmission.svg";
 import iconPetrol from "../../assets/icons/badges/petrol.svg";
-
 import iconVan from "../../assets/icons/badges/van.svg";
 import iconAlcove from "../../assets/icons/badges/alcove.svg";
 import iconFullyIntegrated from "../../assets/icons/badges/fullyIntegrated.svg";
-
 import iconAC from "../../assets/icons/badges/AC.svg";
 import iconBathroom from "../../assets/icons/badges/bathroom.svg";
 import iconKitchen from "../../assets/icons/badges/kitchen.svg";
@@ -16,7 +14,7 @@ import iconRadio from "../../assets/icons/badges/radio.svg";
 import iconGas from "../../assets/icons/badges/gas.svg";
 import iconMicrowave from "../../assets/icons/badges/microwave.svg";
 
-const CamperBadges = ({ camper, itemsShow = 4 }) => {
+const CamperBadges = ({ camper, showAll = false, itemsToShow = 7 }) => {
   const camperForm = camper.form;
   const formIcons = {
     panelTruck: iconVan,
@@ -37,6 +35,11 @@ const CamperBadges = ({ camper, itemsShow = 4 }) => {
     { key: "microwave", label: "microwave", src: iconMicrowave },
     { key: "refrigator", label: "refrigator", src: iconRefrigator },
   ];
+
+  const availableBadges = badges.filter(({ key }) => Boolean(camper && camper[key]));
+  const badgesToShow = showAll
+    ? availableBadges
+    : availableBadges.slice(0, itemsToShow - 3);
 
   const camperName = () => {
     switch (camperForm) {
@@ -62,13 +65,11 @@ const CamperBadges = ({ camper, itemsShow = 4 }) => {
       <li className={styles.badge}>
         <img src={formIcons[camperForm]} alt="icon form" /> {camperName()}
       </li>
-      {badges
-        .filter(({ key }) => Boolean(camper && camper[key]))
-        .map(({ key, label, src }) => (
-          <li key={key} className={styles.badge}>
-            <img src={src} alt={`${label} icon`} /> {label}
-          </li>
-        ))}
+      {badgesToShow.map(({ key, label, src }) => (
+        <li key={key} className={styles.badge}>
+          <img src={src} alt={`${label} icon`} /> {label}
+        </li>
+      ))}
     </ul>
   );
 };
