@@ -91,4 +91,9 @@ textarea:focus:not(:focus-visible) {
 
 body {
     font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-main);
 }

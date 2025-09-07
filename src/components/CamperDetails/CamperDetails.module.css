@@ -1,0 +1,107 @@
+.card {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+
+    border-radius: 20px;
+    border: 1px solid var(--color-gray-light, #DADDE1);
+
+}
+
+.image {
+    width: 292px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cardInfo {
+    display: flex;
+    width: 524px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex-shrink: 0;
+
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardTitle {
+
+}
+
+.cardPrice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.3; /* 133.333% */
+}
+
+.likeButton {
+
+}
+
+.iconLike {
+    width: 26px;
+    height: 24px;
+    stroke: red;
+    fill: none;
+    stroke-width: 1.5;
+    cursor: pointer;
+    transition: stroke 0.2s ease;
+}
+
+.iconLike.liked {
+    stroke: red;
+}
+
+.cardRatingContainer {
+    display: flex;
+    gap: 16px;
+}
+
+.cardRating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+}
+
+.iconStar {
+
+}
+
+.rating {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+}
+
+.location {
+
+}
+
+.cardDesc {
+    color: var(--color-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.cardBadges {
+    display: flex;
+    gap: 8px;
+}

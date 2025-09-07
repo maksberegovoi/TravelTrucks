@@ -6,7 +6,7 @@ import { CATALOG_ROUTE } from "../../utils/consts.js";
 
 const HomePage = () => {
   return (
-    <div className={styles.hero} style={{ backgroundImage: `url(${heroBg})` }}>
+    <section className={styles.hero} style={{ backgroundImage: `url(${heroBg})` }}>
       <div className={styles.titleContainer}>
         <h1 className={styles.title}>Campers of your dreams</h1>
         <h2 className={styles.titleDesc}>
@@ -16,7 +16,7 @@ const HomePage = () => {
           View Now
         </MyButton>
       </div>
-    </div>
+    </section>
   );
 };
 
