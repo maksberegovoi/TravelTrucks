@@ -69,40 +69,43 @@ const CamperForm = () => {
         >
           {() => (
             <Form className={styles.form}>
-              <Field
-                type="text"
-                name="name"
-                placeholder="Name*"
-                className={styles.formInput}
-              />
-              <ErrorMessage name="name" component="span" className={styles.error} />
+              <div className={styles.formFields}>
+                <Field
+                  type="text"
+                  name="name"
+                  placeholder="Name*"
+                  className={styles.formInput}
+                />
+                <ErrorMessage name="name" component="span" className={styles.error} />
 
-              <Field
-                type="email"
-                name="email"
-                placeholder="Email*"
-                className={styles.formInput}
-              />
-              <ErrorMessage name="email" component="span" className={styles.error} />
+                <Field
+                  type="email"
+                  name="email"
+                  placeholder="Email*"
+                  className={styles.formInput}
+                />
+                <ErrorMessage name="email" component="span" className={styles.error} />
 
-              <Field
-                type="date"
-                name="date"
-                placeholder="Booking date*"
-                min={todayYMD()}
-                className={styles.formInput}
-              />
-              <ErrorMessage name="date" component="span" className={styles.error} />
+                <Field
+                  type="date"
+                  name="date"
+                  placeholder="Booking date*"
+                  min={todayYMD()}
+                  className={styles.formInput}
+                />
+                <ErrorMessage name="date" component="span" className={styles.error} />
 
-              <Field
-                as="textarea"
-                name="comment"
-                placeholder="Comment"
-                className={styles.formTextarea}
-              />
-              <ErrorMessage name="comment" component="span" className={styles.error} />
-
-              <MyButton type="submit">Send</MyButton>
+                <Field
+                  as="textarea"
+                  name="comment"
+                  placeholder="Comment"
+                  className={styles.formTextarea}
+                />
+                <ErrorMessage name="comment" component="span" className={styles.error} />
+              </div>
+              <MyButton type="submit" className={styles.button}>
+                Send
+              </MyButton>
             </Form>
           )}
         </Formik>

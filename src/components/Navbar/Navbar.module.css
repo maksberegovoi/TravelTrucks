@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     padding: 24px 64px;
-    border-bottom: 1px solid var(--color-badges, #F2F4F7);
+    border-bottom: 1px solid var(--color-gray-light, #F2F4F7);
     background: var(--color-inputs, #F7F7F7);
 
 }

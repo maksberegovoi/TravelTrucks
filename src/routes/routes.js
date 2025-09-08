@@ -23,6 +23,7 @@ export const publicRoutes = [
     path: CAMPER_DETAILS_ROUTE,
     Component: CamperDetailsPage,
     children: [
+      { index: true, Component: CamperFeatures },
       { path: CAMPER_FEATURES, Component: CamperFeatures },
       { path: CAMPER_REVIEWS, Component: CamperReviews },
     ],

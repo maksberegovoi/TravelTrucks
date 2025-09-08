@@ -1,11 +1,11 @@
 .hero {
     padding: 0 64px;
-
+    height: 696px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-
+    min-width: 1440px;
     display: flex;
     align-items: center;
 }

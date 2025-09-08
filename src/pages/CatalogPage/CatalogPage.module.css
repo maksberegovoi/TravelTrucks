@@ -4,6 +4,8 @@
     grid-template-columns: 30% 1fr;
     height: calc(200vh - 96px);
     overflow: hidden;
+    min-width: 1440px;
+    width: 100%;
 }
 
 .sidebar {
