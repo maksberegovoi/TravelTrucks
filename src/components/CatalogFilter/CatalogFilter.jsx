@@ -22,6 +22,7 @@ import {
 } from "../../redux/filtersSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPagination } from "../../redux/campersSlice.js";
+import Location from "../../components/Location/Location.jsx";
 
 const CatalogFilter = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,6 @@ const CatalogFilter = () => {
     { label: "microwave", src: iconMicrowave },
     { label: "refrigerator", src: iconRefrigator },
   ];
-
   const type = [
     { key: "van", label: "panelTruck", src: iconVan },
     { key: "alcove", label: "alcove", src: iconAlcove },
@@ -68,6 +68,7 @@ const CatalogFilter = () => {
 
   return (
     <div className={styles.container}>
+      <Location />
       <p className={styles.label}>Filters</p>
       <div className={styles.filterContainer}>
         <h3 className={styles.filterType}>Vehicle equipment</h3>

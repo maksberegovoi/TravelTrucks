@@ -6,6 +6,7 @@ const filtersSlice = createSlice({
   initialState: {
     equipment: [],
     type: [],
+    location: "",
   },
   reducers: {
     changeFilterEquipment: (state, action) => {
@@ -14,21 +15,29 @@ const filtersSlice = createSlice({
     changeFilterType: (state, action) => {
       state.type = action.payload;
     },
+    changeFilterLocation: (state, action) => {
+      state.location = action.payload;
+    },
   },
 });
 
 export const selectFilterEquipment = state => state.filters.equipment;
 export const selectFilterType = state => state.filters.type;
-export const { changeFilterEquipment, changeFilterType } = filtersSlice.actions;
+export const selectFilterLocation = state => state.filters.location;
+export const { changeFilterEquipment, changeFilterType, changeFilterLocation } =
+  filtersSlice.actions;
 
 export const selectFilterCampers = createSelector(
-  [selectCampers, selectFilterEquipment, selectFilterType],
-  (campers, equipmentFilter, typeFilter) => {
-    if (equipmentFilter.length === 0 && typeFilter.length === 0) {
-      return campers;
-    }
-
+  [selectCampers, selectFilterEquipment, selectFilterType, selectFilterLocation],
+  (campers, equipmentFilter, typeFilter, locationFilter) => {
     return campers.filter(camper => {
+      if (
+        locationFilter &&
+        !camper.location.toLowerCase().includes(locationFilter.toLowerCase())
+      ) {
+        return false;
+      }
+
       if (typeFilter.length > 0 && !typeFilter.includes(camper.form)) {
         return false;
       }
@@ -41,6 +50,11 @@ export const selectFilterCampers = createSelector(
     });
   }
 );
+
+export const selectUniqueLocations = createSelector([selectCampers], campers => {
+  const locations = campers.map(camper => camper.location);
+  return [...new Set(locations)];
+});
 
 export const selectPaginatedCampers = createSelector(
   [selectFilterCampers, selectCurrentPage, selectItemsPerPage],

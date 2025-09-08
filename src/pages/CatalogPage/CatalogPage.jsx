@@ -8,7 +8,6 @@ const CatalogPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.sidebar}>
-        <Location />
         <CatalogFilter />
       </div>
       <div className={styles.catalogContainer}>
