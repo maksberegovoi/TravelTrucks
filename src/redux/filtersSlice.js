@@ -9,7 +9,6 @@ const filtersSlice = createSlice({
   },
   reducers: {
     changeFilterEquipment: (state, action) => {
-      console.log(action.payload);
       state.equipment = action.payload;
     },
     changeFilterType: (state, action) => {
@@ -28,12 +27,14 @@ export const selectFilterCampers = createSelector(
     if (equipmentFilter.length === 0 && typeFilter.length === 0) {
       return campers;
     }
+
     return campers.filter(camper => {
       if (typeFilter.length > 0 && !typeFilter.includes(camper.form)) {
         return false;
       }
+
       if (equipmentFilter.length > 0) {
-        return equipmentFilter.some(equipment => camper[equipment] === true);
+        return equipmentFilter.every(equipment => camper[equipment] === true);
       }
 
       return true;

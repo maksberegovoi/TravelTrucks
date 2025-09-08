@@ -33,13 +33,13 @@ const CatalogFilter = () => {
     { label: "water", src: iconWater },
     { label: "gas", src: iconGas },
     { label: "microwave", src: iconMicrowave },
-    { label: "refrigator", src: iconRefrigator },
+    { label: "refrigerator", src: iconRefrigator },
   ];
 
   const type = [
-    { label: "van", src: iconVan },
-    { label: "alcove", src: iconAlcove },
-    { label: "fullyIntegrated", src: iconFullyIntegrated },
+    { key: "van", label: "panelTruck", src: iconVan },
+    { key: "alcove", label: "alcove", src: iconAlcove },
+    { key: "fully integrated", label: "fullyIntegrated", src: iconFullyIntegrated },
   ];
 
   const filterEquipment = useSelector(selectFilterEquipment);
@@ -91,7 +91,7 @@ const CatalogFilter = () => {
       <div className={styles.filterContainer}>
         <h3 className={styles.filterType}>Vehicle equipment</h3>
         <ul className={styles.badges}>
-          {type.map(({ label, src }) => (
+          {type.map(({ key, label, src }) => (
             <li
               key={label}
               className={
@@ -107,7 +107,7 @@ const CatalogFilter = () => {
                 alt={`${label} icon`}
                 aria-label={label}
               />{" "}
-              {label}
+              {key}
             </li>
           ))}
         </ul>
