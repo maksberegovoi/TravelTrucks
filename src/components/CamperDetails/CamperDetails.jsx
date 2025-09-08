@@ -16,6 +16,7 @@ import {
 } from "../../redux/campersSlice.js";
 import Loader from "../../UI/Loader/Loader.jsx";
 import { fetchCamperById } from "../../redux/campersOps.jsx";
+import { changeFilterEquipment } from "../../redux/filtersSlice.js";
 
 const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   const dispatch = useDispatch();
@@ -45,7 +46,11 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   };
 
   const selectFavourite = () => {
-    dispatch(addFavourite([...camperFavourites, camper]));
+    if (camperFavourites.includes(item)) {
+      dispatch(addFavourite(camperFavourites.filter(favourite => favourite !== item)));
+    } else {
+      dispatch(addFavourite([...camperFavourites, camper]));
+    }
   };
 
   useEffect(() => {
@@ -53,7 +58,6 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   }, [item]);
 
   const containerSwitcher = () => {
-    console.log("switcher");
     switch (variant) {
       case "catalog":
         return styles.catalogContainer;
@@ -91,7 +95,11 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
                 aria-label="Add to favourite"
               >
                 <svg
-                  className={styles.iconLike}
+                  className={
+                    camperFavourites.includes(item)
+                      ? `${styles.iconLike} ${styles.liked}`
+                      : styles.iconLike
+                  }
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
                   height="24"

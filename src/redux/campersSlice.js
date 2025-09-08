@@ -22,7 +22,6 @@ const campersSlice = createSlice({
   },
   reducers: {
     addFavourite: (state, action) => {
-      console.log(action.payload, "payload");
       state.favourites = action.payload;
     },
   },
@@ -36,7 +35,6 @@ const campersSlice = createSlice({
 
     builder.addCase(fetchCamperById.pending, pendingHandler);
     builder.addCase(fetchCamperById.fulfilled, (state, action) => {
-      console.log(action.payload);
       state.itemById = action.payload;
       state.loading = false;
     });

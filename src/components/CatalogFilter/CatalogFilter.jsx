@@ -46,12 +46,9 @@ const CatalogFilter = () => {
   const filterType = useSelector(selectFilterType);
 
   const selectEquipment = label => {
-    console.log(filterEquipment);
     if (filterEquipment.includes(label)) {
-      console.log("1");
       dispatch(changeFilterEquipment(filterEquipment.filter(filter => filter !== label)));
     } else {
-      console.log("2");
       dispatch(changeFilterEquipment([...filterEquipment, label]));
     }
   };
