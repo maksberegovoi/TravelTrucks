@@ -6,9 +6,9 @@ const pendingHandler = state => {
   state.error = null;
 };
 
-const rejectedHandler = (state, action) => {
+const rejectedHandler = state => {
   state.loading = false;
-  state.error = action.payload;
+  state.error = true;
 };
 
 const campersSlice = createSlice({
@@ -17,6 +17,7 @@ const campersSlice = createSlice({
     items: [],
     itemById: [],
     favourites: [],
+    totalItems: 0,
     loading: false,
     error: null,
   },
@@ -28,7 +29,8 @@ const campersSlice = createSlice({
   extraReducers: builder => {
     builder.addCase(fetchCampers.pending, pendingHandler);
     builder.addCase(fetchCampers.fulfilled, (state, action) => {
-      state.items = action.payload;
+      state.items = action.payload.items;
+      state.totalItems = action.payload.total;
       state.loading = false;
     });
     builder.addCase(fetchCampers.rejected, rejectedHandler);
@@ -47,6 +49,7 @@ export const selectCampersLoading = state => state.campers.loading;
 export const selectCampersError = state => state.campers.error;
 export const selectCamperById = state => state.campers.itemById;
 export const selectCamperFavourites = state => state.campers.favourites;
+export const selectCampersTotalItems = state => state.campers.total;
 export const { addFavourite } = campersSlice.actions;
 
 export default campersSlice.reducer;

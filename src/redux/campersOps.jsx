@@ -6,7 +6,7 @@ axios.defaults.baseURL = API_URL;
 
 export const fetchCampers = createAsyncThunk("campers/fetchAll", async () => {
   const response = await axios.get("/campers");
-  return response.data.items;
+  return response.data;
 });
 
 export const fetchCamperById = createAsyncThunk("campers/fetchById", async id => {

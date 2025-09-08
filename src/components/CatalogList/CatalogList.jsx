@@ -1,23 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./CatalogList.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCampersError, selectCampersLoading } from "../../redux/campersSlice.js";
+import {
+  selectCampersError,
+  selectCampersLoading,
+  selectCampersTotalItems,
+} from "../../redux/campersSlice.js";
 import CamperDetails from "../CamperDetails/CamperDetails.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
 import { selectFilterCampers } from "../../redux/filtersSlice.js";
+import toast from "react-hot-toast";
 
 const CatalogList = () => {
   const campers = useSelector(selectFilterCampers);
+  const total = useSelector(selectCampersTotalItems);
   const isLoading = useSelector(selectCampersLoading);
   const error = useSelector(selectCampersError);
+
+  useEffect(() => {
+    if (error) {
+      toast.error("Error fetching data...");
+    }
+  }, [error]);
 
   return (
     <div className={styles.catalogList}>
       {error && (
         <div>
-          <h2>Error fetching data...</h2>
-          <p>{error}</p>
+          <h2 className={styles.error}>Error fetching data...</h2>
         </div>
       )}
       <ul className={styles.container}>
