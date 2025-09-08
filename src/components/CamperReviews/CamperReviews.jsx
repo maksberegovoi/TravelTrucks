@@ -6,7 +6,6 @@ import styles from "./CamperReviews.module.css";
 
 const CamperReviews = () => {
   const { reviews } = useSelector(selectCamperById);
-  console.log(reviews);
   return (
     <div>
       <ul className={styles.reviews}>
