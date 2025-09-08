@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./CatalogFilter.module.css";
 import iconTransmission from "../../assets/icons/badges/transmission.svg";
 import iconPetrol from "../../assets/icons/badges/petrol.svg";
@@ -21,6 +21,7 @@ import {
   selectFilterEquipment,
 } from "../../redux/filtersSlice.js";
 import { useDispatch, useSelector } from "react-redux";
+import { resetPagination } from "../../redux/campersSlice.js";
 
 const CatalogFilter = () => {
   const dispatch = useDispatch();
@@ -60,6 +61,10 @@ const CatalogFilter = () => {
       dispatch(changeFilterType([...filterType, label]));
     }
   };
+
+  useEffect(() => {
+    dispatch(resetPagination());
+  }, [filterEquipment, filterType, dispatch]);
 
   return (
     <div className={styles.container}>

@@ -18,12 +18,20 @@ const campersSlice = createSlice({
     itemById: [],
     favourites: [],
     totalItems: 0,
+    currentPage: 1,
+    itemsPerPage: 4,
     loading: false,
     error: null,
   },
   reducers: {
     addFavourite: (state, action) => {
       state.favourites = action.payload;
+    },
+    loadMore: state => {
+      state.currentPage += 1;
+    },
+    resetPagination: state => {
+      state.currentPage = 1;
     },
   },
   extraReducers: builder => {
@@ -49,7 +57,9 @@ export const selectCampersLoading = state => state.campers.loading;
 export const selectCampersError = state => state.campers.error;
 export const selectCamperById = state => state.campers.itemById;
 export const selectCamperFavourites = state => state.campers.favourites;
-export const selectCampersTotalItems = state => state.campers.total;
-export const { addFavourite } = campersSlice.actions;
+export const selectCampersTotalItems = state => state.campers.totalItems;
+export const selectCurrentPage = state => state.campers.currentPage;
+export const selectItemsPerPage = state => state.campers.itemsPerPage;
+export const { addFavourite, loadMore, resetPagination } = campersSlice.actions;
 
 export default campersSlice.reducer;

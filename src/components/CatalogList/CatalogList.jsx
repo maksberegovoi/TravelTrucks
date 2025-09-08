@@ -9,14 +9,24 @@ import {
 import CamperDetails from "../CamperDetails/CamperDetails.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
-import { selectFilterCampers } from "../../redux/filtersSlice.js";
+import {
+  selectPaginatedCampers,
+  selectHasMoreCampers,
+} from "../../redux/filtersSlice.js";
 import toast from "react-hot-toast";
+import { loadMore } from "../../redux/campersSlice.js";
 
 const CatalogList = () => {
-  const campers = useSelector(selectFilterCampers);
+  const dispatch = useDispatch();
+  const campers = useSelector(selectPaginatedCampers);
+  const hasMore = useSelector(selectHasMoreCampers);
   const total = useSelector(selectCampersTotalItems);
   const isLoading = useSelector(selectCampersLoading);
   const error = useSelector(selectCampersError);
+
+  const handleLoadMore = () => {
+    dispatch(loadMore());
+  };
 
   useEffect(() => {
     if (error) {
@@ -39,8 +49,10 @@ const CatalogList = () => {
           </li>
         ))}
       </ul>
-      {!error && campers.length > 1 && (
-        <MyButton className={styles.button}>Load more</MyButton>
+      {!error && hasMore && (
+        <MyButton className={styles.button} onClick={handleLoadMore}>
+          Load more
+        </MyButton>
       )}
     </div>
   );

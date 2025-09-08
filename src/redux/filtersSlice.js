@@ -1,5 +1,5 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { selectCampers } from "./campersSlice.js";
+import { selectCampers, selectCurrentPage, selectItemsPerPage } from "./campersSlice.js";
 
 const filtersSlice = createSlice({
   name: "filters",
@@ -39,6 +39,22 @@ export const selectFilterCampers = createSelector(
 
       return true;
     });
+  }
+);
+
+export const selectPaginatedCampers = createSelector(
+  [selectFilterCampers, selectCurrentPage, selectItemsPerPage],
+  (filteredCampers, currentPage, itemsPerPage) => {
+    const endIndex = currentPage * itemsPerPage;
+    return filteredCampers.slice(0, endIndex);
+  }
+);
+
+export const selectHasMoreCampers = createSelector(
+  [selectFilterCampers, selectCurrentPage, selectItemsPerPage],
+  (filteredCampers, currentPage, itemsPerPage) => {
+    const endIndex = currentPage * itemsPerPage;
+    return endIndex < filteredCampers.length;
   }
 );
 
