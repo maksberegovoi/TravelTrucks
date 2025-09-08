@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./CatalogFilter.module.css";
 import iconTransmission from "../../assets/icons/badges/transmission.svg";
 import iconPetrol from "../../assets/icons/badges/petrol.svg";
@@ -14,25 +14,55 @@ import iconWater from "../../assets/icons/badges/water.svg";
 import iconRadio from "../../assets/icons/badges/radio.svg";
 import iconGas from "../../assets/icons/badges/gas.svg";
 import iconMicrowave from "../../assets/icons/badges/microwave.svg";
+import {
+  changeFilterEquipment,
+  changeFilterType,
+  selectFilterType,
+  selectFilterEquipment,
+} from "../../redux/filtersSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
 const CatalogFilter = () => {
+  const dispatch = useDispatch();
   const equipment = [
-    { key: "AC", label: "AC", src: iconAC },
-    { key: "bathroom", label: "bathroom", src: iconBathroom },
-    { key: "kitchen", label: "kitchen", src: iconKitchen },
-    { key: "TV", label: "TV", src: iconTV },
-    { key: "radio", label: "radio", src: iconRadio },
-    { key: "water", label: "water", src: iconWater },
-    { key: "gas", label: "gas", src: iconGas },
-    { key: "microwave", label: "microwave", src: iconMicrowave },
-    { key: "refrigator", label: "refrigator", src: iconRefrigator },
+    { label: "AC", src: iconAC },
+    { label: "bathroom", src: iconBathroom },
+    { label: "kitchen", src: iconKitchen },
+    { label: "TV", src: iconTV },
+    { label: "radio", src: iconRadio },
+    { label: "water", src: iconWater },
+    { label: "gas", src: iconGas },
+    { label: "microwave", src: iconMicrowave },
+    { label: "refrigator", src: iconRefrigator },
   ];
 
   const type = [
-    { key: "van", label: "van", src: iconVan },
-    { key: "alcove", label: "alcove", src: iconAlcove },
-    { key: "fullyIntegrated", label: "fullyIntegrated", src: iconFullyIntegrated },
+    { label: "van", src: iconVan },
+    { label: "alcove", src: iconAlcove },
+    { label: "fullyIntegrated", src: iconFullyIntegrated },
   ];
+
+  const filterEquipment = useSelector(selectFilterEquipment);
+  const filterType = useSelector(selectFilterType);
+
+  const selectEquipment = label => {
+    console.log(filterEquipment);
+    if (filterEquipment.includes(label)) {
+      console.log("1");
+      dispatch(changeFilterEquipment(filterEquipment.filter(filter => filter !== label)));
+    } else {
+      console.log("2");
+      dispatch(changeFilterEquipment([...filterEquipment, label]));
+    }
+  };
+
+  const selectType = label => {
+    if (filterType.includes(label)) {
+      dispatch(changeFilterType(filterType.filter(filter => filter !== label)));
+    } else {
+      dispatch(changeFilterType([...filterType, label]));
+    }
+  };
 
   return (
     <div className={styles.container}>
@@ -40,8 +70,16 @@ const CatalogFilter = () => {
       <div className={styles.filterContainer}>
         <h3 className={styles.filterType}>Vehicle equipment</h3>
         <ul className={styles.badges}>
-          {equipment.map(({ key, label, src }) => (
-            <li key={key} className={styles.badge}>
+          {equipment.map(({ label, src }) => (
+            <li
+              key={label}
+              className={
+                filterEquipment.includes(label)
+                  ? `${styles.badge} ${styles.selected}`
+                  : styles.badge
+              }
+              onClick={() => selectEquipment(label)}
+            >
               <img
                 className={styles.icon}
                 src={src}
@@ -56,8 +94,16 @@ const CatalogFilter = () => {
       <div className={styles.filterContainer}>
         <h3 className={styles.filterType}>Vehicle equipment</h3>
         <ul className={styles.badges}>
-          {type.map(({ key, label, src }) => (
-            <li key={key} className={styles.badge}>
+          {type.map(({ label, src }) => (
+            <li
+              key={label}
+              className={
+                filterType.includes(label)
+                  ? `${styles.badge} ${styles.selected}`
+                  : styles.badge
+              }
+              onClick={() => selectType(label)}
+            >
               <img
                 className={styles.icon}
                 src={src}

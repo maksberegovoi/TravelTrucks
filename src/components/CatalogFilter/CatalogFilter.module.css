@@ -21,11 +21,16 @@
     cursor: pointer;
     min-width: 112px;
     text-transform: capitalize;
+    border: 1px solid transparent;
+    border-radius: 10px;
 }
 
 .badge:hover {
-    border: 1px solid var(--color-gray-light);
-    border-radius: 10px;
+    border-color: var(--color-gray-light);
+}
+
+.badge.selected {
+    border-color: var(--color-button-hover);
 }
 
 .icon {

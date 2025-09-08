@@ -1,5 +1,4 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { selectFilterName } from "./filtersSlice.js";
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchCamperById, fetchCampers } from "./campersOps.jsx";
 
 const pendingHandler = state => {
@@ -17,8 +16,15 @@ const campersSlice = createSlice({
   initialState: {
     items: [],
     itemById: [],
+    favourites: [],
     loading: false,
     error: null,
+  },
+  reducers: {
+    addFavourite: (state, action) => {
+      console.log(action.payload, "payload");
+      state.favourites = action.payload;
+    },
   },
   extraReducers: builder => {
     builder.addCase(fetchCampers.pending, pendingHandler);
@@ -42,14 +48,7 @@ export const selectCampers = state => state.campers.items;
 export const selectCampersLoading = state => state.campers.loading;
 export const selectCampersError = state => state.campers.error;
 export const selectCamperById = state => state.campers.itemById;
-
-export const selectFilterCampers = createSelector(
-  [selectCampers, selectFilterName],
-  (campers, nameFilter) => {
-    return campers.filter(camper =>
-      camper.name.toLowerCase().includes(nameFilter.toLowerCase())
-    );
-  }
-);
+export const selectCamperFavourites = state => state.campers.favourites;
+export const { addFavourite } = campersSlice.actions;
 
 export default campersSlice.reducer;

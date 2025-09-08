@@ -1,15 +1,11 @@
 import React from "react";
 import styles from "./CatalogList.module.css";
-import { useSelector } from "react-redux";
-import {
-  selectCampers,
-  selectCampersError,
-  selectCampersLoading,
-  selectFilterCampers,
-} from "../../redux/campersSlice.js";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCampersError, selectCampersLoading } from "../../redux/campersSlice.js";
 import CamperDetails from "../CamperDetails/CamperDetails.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
+import { selectFilterCampers } from "../../redux/filtersSlice.js";
 
 const CatalogList = () => {
   const campers = useSelector(selectFilterCampers);

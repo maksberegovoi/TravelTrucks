@@ -49,33 +49,19 @@
     }
 
     .likeButton {
-
+        cursor: pointer;
     }
 
     .iconLike {
         width: 26px;
         height: 24px;
-        stroke: red;
-        fill: none;
-        stroke-width: 1.5;
-        cursor: pointer;
-        transition: stroke 0.2s ease;
+        color: red; /* обводка */
+        fill: blue; /* заливка */
     }
 
-    .iconLike.liked {
-        stroke: red;
-    }
-
-    .ratingContainer {
-        display: flex;
-        gap: 16px;
-    }
-
-    .rating {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-
+    .iconLike.filled {
+        color: yellow; /* цвет когда лайкнуто */
+        fill: yellow; /* если нужно залить */
     }
 
     .iconStar {
@@ -167,35 +153,9 @@
 
     }
 
-    .likeButton {
 
-    }
 
-    .iconLike {
-        width: 26px;
-        height: 24px;
-        stroke: red;
-        fill: none;
-        stroke-width: 1.5;
-        cursor: pointer;
-        transition: stroke 0.2s ease;
-    }
 
-    .iconLike.liked {
-        stroke: red;
-    }
-
-    .ratingContainer {
-        display: flex;
-        gap: 16px;
-    }
-
-    .rating {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-
-    }
 
     .iconStar {
 
@@ -224,4 +184,16 @@
         display: flex;
         gap: 8px;
     }
+}
+
+.ratingContainer {
+    display: flex;
+    gap: 16px;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
 }

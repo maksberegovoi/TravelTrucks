@@ -1,4 +1,5 @@
 export const HOME_ROUTE = "/";
+export const FAVOURITES_ROUTE = "/favourites";
 export const CATALOG_ROUTE = "/catalog";
 export const CAMPER_DETAILS_ROUTE = "/catalog/:id";
 export const CAMPER_FEATURES = "features";

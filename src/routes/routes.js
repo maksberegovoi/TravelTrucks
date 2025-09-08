@@ -4,10 +4,12 @@ import {
   CAMPER_DETAILS_ROUTE,
   CAMPER_REVIEWS,
   CAMPER_FEATURES,
+  FAVOURITES_ROUTE,
 } from "../utils/consts.js";
 import { lazy } from "react";
 import HomePage from "../pages/HomePage/HomePage.jsx";
 import CamperFeatures from "../components/CamperFeatures/CamperFeatures.jsx";
+import FavouritesPage from "../pages/FavouritesPage/FavouritesPage.jsx";
 
 const CatalogPage = lazy(() => import("../pages/CatalogPage/CatalogPage.jsx"));
 const CamperDetailsPage = lazy(
@@ -18,6 +20,7 @@ const CamperReviews = lazy(() => import("../components/CamperReviews/CamperRevie
 
 export const publicRoutes = [
   { path: HOME_ROUTE, Component: HomePage },
+  { path: FAVOURITES_ROUTE, Component: FavouritesPage },
   { path: CATALOG_ROUTE, Component: CatalogPage },
   {
     path: CAMPER_DETAILS_ROUTE,
