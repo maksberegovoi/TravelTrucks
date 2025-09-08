@@ -3,7 +3,6 @@ import styles from "./CatalogPage.module.css";
 import CatalogList from "../../components/CatalogList/CatalogList.jsx";
 import CatalogFilter from "../../components/CatalogFilter/CatalogFilter.jsx";
 import Location from "../../components/Location/Location.jsx";
-import MyButton from "../../UI/MyButton/MyButton.jsx";
 
 const CatalogPage = () => {
   return (

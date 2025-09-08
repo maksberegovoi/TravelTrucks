@@ -5,6 +5,9 @@
     border-bottom: 1px solid var(--color-gray-light, #F2F4F7);
     background: var(--color-inputs, #F7F7F7);
 
+    position: sticky;
+    top: -1px;
+
 }
 
 .link {

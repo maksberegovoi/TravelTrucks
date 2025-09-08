@@ -17,11 +17,11 @@
 .infoTitle::after {
     content: '';
     position: absolute;
-    bottom: -24px; /* половина от gap (48px / 2) */
+    bottom: -24px;
     left: 0;
     width: 100%;
     height: 1px;
-    background-color: rgba(16, 24, 40, 0.1); /* цвет divider */
+    background-color: rgba(16, 24, 40, 0.1);
 }
 
 .infoContainer {

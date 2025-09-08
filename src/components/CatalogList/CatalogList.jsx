@@ -5,13 +5,14 @@ import {
   selectCampers,
   selectCampersError,
   selectCampersLoading,
+  selectFilterCampers,
 } from "../../redux/campersSlice.js";
 import CamperDetails from "../CamperDetails/CamperDetails.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
 
 const CatalogList = () => {
-  const campers = useSelector(selectCampers);
+  const campers = useSelector(selectFilterCampers);
   const isLoading = useSelector(selectCampersLoading);
   const error = useSelector(selectCampersError);
 

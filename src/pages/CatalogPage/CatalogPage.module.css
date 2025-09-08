@@ -2,18 +2,20 @@
     padding: 48px 64px;
     display: grid;
     grid-template-columns: 30% 1fr;
-    height: calc(200vh - 96px);
-    overflow: hidden;
-    min-width: 1440px;
     width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .sidebar {
     grid-column: 1;
     position: sticky;
-    top: 0;
+    top: 125px;
     height: fit-content;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 }
 
 .catalogContainer {
@@ -22,6 +24,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto; /* скролл только для каталога */
     height: 100%;
 }
