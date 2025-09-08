@@ -1,10 +1,10 @@
 import React, { Suspense } from "react";
 import styles from "./CamperDetailsPage.module.css";
-import CamperDetails from "../../components/CamperCard/CamperCard.jsx";
+import CamperDetails from "../../components/CamperDetails/CamperDetails.jsx";
 import CamperForm from "../../components/CamperForm/CamperForm.jsx";
 import { Outlet, useParams } from "react-router-dom";
 import Loader from "../../UI/Loader/Loader.jsx";
-import CamperCard from "../../components/CamperCard/CamperCard.jsx";
+import CamperCard from "../../components/CamperDetails/CamperDetails.jsx";
 
 const CamperDetailsPage = () => {
   const { id } = useParams();

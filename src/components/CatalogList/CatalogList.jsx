@@ -6,7 +6,7 @@ import {
   selectCampersError,
   selectCampersLoading,
 } from "../../redux/campersSlice.js";
-import CamperDetails from "../CamperCard/CamperCard.jsx";
+import CamperDetails from "../CamperDetails/CamperDetails.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
 
