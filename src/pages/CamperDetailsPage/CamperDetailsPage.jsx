@@ -16,15 +16,31 @@ import {
   CAMPER_FEATURES,
   CAMPER_REVIEWS,
 } from "../../utils/consts.js";
+import { Toaster } from "react-hot-toast";
 
 const CamperDetailsPage = () => {
   const { id } = useParams();
 
   return (
     <div className={styles.container}>
-      {/*<div>*/}
-      {/*  <Toaster position="top-right" />*/}
-      {/*</div>*/}
+      <div>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: "#00FF00",
+              color: "#fff",
+            },
+            success: {
+              duration: 5000,
+              iconTheme: {
+                primary: "green",
+                secondary: "white",
+              },
+            },
+          }}
+        />
+      </div>
       <CamperDetails camperId={id} variant="detailsPage" />
       <div className={styles.tooglerContainer}>
         <h3 className={styles.toogler}>

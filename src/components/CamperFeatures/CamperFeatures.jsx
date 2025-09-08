@@ -3,10 +3,8 @@ import styles from "./CamperFeatures.module.css";
 import CamperBadges from "../CamperBadges/CamperBadges.jsx";
 import { useSelector } from "react-redux";
 import { selectCamperById } from "../../redux/campersSlice.js";
-import { useParams } from "react-router-dom";
 
 const CamperFeatures = () => {
-  const { id } = useParams();
   const camper = useSelector(selectCamperById);
 
   return (

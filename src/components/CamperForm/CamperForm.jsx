@@ -3,10 +3,10 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
 import styles from "./CamperForm.module.css";
 import * as Yup from "yup";
+import toast from "react-hot-toast";
 
 const todayYMD = () => {
   const d = new Date();
-  // Normalize to local today yyyy-MM-dd
   const year = d.getFullYear();
   const month = String(d.getMonth() + 1).padStart(2, "0");
   const day = String(d.getDate()).padStart(2, "0");
@@ -44,6 +44,9 @@ const CamperForm = () => {
       comment: values.comment || "",
     };
     console.log(payload);
+    toast.success(
+      "You have successfully booked your campervan! Check your email for details"
+    );
     actions.resetForm();
   };
 
