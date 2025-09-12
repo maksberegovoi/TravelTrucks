@@ -1,12 +1,29 @@
-# React + Vite
+# TravelTrucks
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An app created to make camper rentals easier. It lets users browse available campers, check detailed descriptions, and book them directly. All browsing and filtering work offline, ensuring quick and smooth navigation.
 
-Currently, two official plugins are available:
+## Home page
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<img width="1899" height="917" alt="image" src="https://github.com/user-attachments/assets/18224003-f71e-4554-a3e7-c8bb92ce2910" />
 
-## Expanding the ESLint configuration
+## Catalog page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img width="1903" height="918" alt="image" src="https://github.com/user-attachments/assets/bb98ba06-2233-4faf-a159-3b9380651b5c" />
+
+## Details page
+
+<img width="1901" height="917" alt="image" src="https://github.com/user-attachments/assets/6d92e1b3-881c-4360-a5d8-b84b55b0b7b6" />
+
+## 🛠️ Tech Stack
+
+- ⚡ **React + Vite** — fast development and optimized build  
+- 🗂️ **Redux Toolkit** — global state management  
+- 🧭 **React Router** — client-side routing  
+- 🔌 **Axios** — API requests handling  
+- 🎨 **CSS Modules** — component-level styling  
+- ☁️ **Vercel** — deployment & hosting
+
+### 🔧 Additional Libraries
+- 📝 **Formik + Yup** — form handling & validation  
+- 🔔 **React Hot Toast** — toast notifications  
+- 💾 **Redux Persist** — state persistence in local storage
