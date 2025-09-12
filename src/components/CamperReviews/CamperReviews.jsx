@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import iconStar from "../../assets/icons/star.svg";
 import styles from "./CamperReviews.module.css";

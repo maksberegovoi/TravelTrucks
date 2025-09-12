@@ -3,11 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const favouritesSlice = createSlice({
   name: "favourites",
   initialState: {
-    items: [],
+    itemsId: [],
   },
   reducers: {
     addFavourite: (state, action) => {
-      state.items = action.payload;
+      if (state.itemsId.includes(action.payload)) {
+        state.itemsId = state.itemsId.filter(id => id !== action.payload);
+      } else {
+        state.itemsId.push(action.payload);
+      }
     },
   },
 });

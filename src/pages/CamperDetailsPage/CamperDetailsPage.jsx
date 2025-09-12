@@ -1,22 +1,10 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import styles from "./CamperDetailsPage.module.css";
 import CamperDetails from "../../components/CamperDetails/CamperDetails.jsx";
 import CamperForm from "../../components/CamperForm/CamperForm.jsx";
-import {
-  generatePath,
-  NavLink,
-  Outlet,
-  useParams,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { generatePath, NavLink, Outlet, useParams } from "react-router-dom";
 import Loader from "../../UI/Loader/Loader.jsx";
-import {
-  CAMPER_DETAILS_ROUTE,
-  CAMPER_FEATURES,
-  CAMPER_REVIEWS,
-} from "../../utils/consts.js";
-import { Toaster } from "react-hot-toast";
+import { CAMPER_REVIEWS } from "../../utils/consts.js";
 
 const CamperDetailsPage = () => {
   const { id } = useParams();

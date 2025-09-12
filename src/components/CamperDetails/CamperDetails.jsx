@@ -42,14 +42,8 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
     }
   };
 
-  const selectFavourite = () => {
-    console.log("click");
-    if (camperFavourites.includes(item)) {
-      dispatch(addFavourite(camperFavourites.filter(favourite => favourite !== item)));
-    } else {
-      dispatch(addFavourite([...camperFavourites, camper]));
-    }
-    console.log(camperFavourites);
+  const addToFavourites = () => {
+    dispatch(addFavourite(item.id));
   };
 
   useEffect(() => {
@@ -89,13 +83,13 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
             €{item.price},00
             {variant === "catalogPage" && (
               <button
-                onClick={selectFavourite}
+                onClick={addToFavourites}
                 className={styles.likeButton}
                 aria-label="Add to favourite"
               >
                 <svg
                   className={
-                    camperFavourites.includes(item)
+                    camperFavourites.includes(item.id)
                       ? `${styles.iconLike} ${styles.liked}`
                       : styles.iconLike
                   }
