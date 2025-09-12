@@ -6,6 +6,11 @@ import { selectCamperById } from "../../redux/reducers/campers/selectors.js";
 
 const CamperFeatures = () => {
   const camper = useSelector(selectCamperById);
+  const camperForms = {
+    panelTruck: "Van",
+    fullyIntegrated: "Fully Integrated",
+    alcove: "Alcove",
+  };
 
   return (
     <div className={styles.container}>
@@ -17,27 +22,27 @@ const CamperFeatures = () => {
         <div className={styles.infoContainer}>
           <div className={styles.infoRow}>
             <span className={styles.infoText}>Form</span>
-            <span className={styles.infoText}>{camper.form}</span>
+            <span className={styles.infoText}>{camperForms[camper.form] || "***"}</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoText}>Length</span>
-            <span className={styles.infoText}>{camper.length}</span>
+            <span className={styles.infoText}>{camper.length || "***"}</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoText}>Width</span>
-            <span className={styles.infoText}>{camper.width}</span>
+            <span className={styles.infoText}>{camper.width || "***"}</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoText}>Height</span>
-            <span className={styles.infoText}>{camper.height}</span>
+            <span className={styles.infoText}>{camper.height || "***"}</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoText}>Tank</span>
-            <span className={styles.infoText}>{camper.tank}</span>
+            <span className={styles.infoText}>{camper.tank || "***"}</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoText}>Consumption</span>
-            <span className={styles.infoText}>{camper.consumption}</span>
+            <span className={styles.infoText}>{camper.consumption || "***"}</span>
           </div>
         </div>
       </div>
