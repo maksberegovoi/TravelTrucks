@@ -1,12 +1,12 @@
 import React from "react";
 import styles from "./Location.module.css";
 import iconMap from "../../assets/icons/map.svg";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  changeFilterLocation,
   selectFilterLocation,
   selectUniqueLocations,
-} from "../../redux/filtersSlice.js";
-import { useDispatch, useSelector } from "react-redux";
+} from "../../redux/reducers/filters/selectors.js";
+import { changeFilterLocation } from "../../redux/reducers/filters/filtersSlice.js";
 
 const Location = () => {
   const dispatch = useDispatch();

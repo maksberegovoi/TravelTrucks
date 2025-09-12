@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styles from "./CatalogFilter.module.css";
-import iconTransmission from "../../assets/icons/badges/transmission.svg";
-import iconPetrol from "../../assets/icons/badges/petrol.svg";
 import iconVan from "../../assets/icons/badges/van.svg";
 import iconAlcove from "../../assets/icons/badges/alcove.svg";
 import iconFullyIntegrated from "../../assets/icons/badges/fullyIntegrated.svg";
@@ -14,15 +12,17 @@ import iconWater from "../../assets/icons/badges/water.svg";
 import iconRadio from "../../assets/icons/badges/radio.svg";
 import iconGas from "../../assets/icons/badges/gas.svg";
 import iconMicrowave from "../../assets/icons/badges/microwave.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { resetPagination } from "../../redux/reducers/campers/campersSlice.js";
+import Location from "../../components/Location/Location.jsx";
+import {
+  selectFilterEquipment,
+  selectFilterType,
+} from "../../redux/reducers/filters/selectors.js";
 import {
   changeFilterEquipment,
   changeFilterType,
-  selectFilterType,
-  selectFilterEquipment,
-} from "../../redux/filtersSlice.js";
-import { useDispatch, useSelector } from "react-redux";
-import { resetPagination } from "../../redux/campersSlice.js";
-import Location from "../../components/Location/Location.jsx";
+} from "../../redux/reducers/filters/filtersSlice.js";
 
 const CatalogFilter = () => {
   const dispatch = useDispatch();

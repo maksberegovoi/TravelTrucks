@@ -16,7 +16,6 @@ const campersSlice = createSlice({
   initialState: {
     items: [],
     itemById: [],
-    favourites: [],
     totalItems: 0,
     currentPage: 1,
     itemsPerPage: 4,
@@ -24,9 +23,6 @@ const campersSlice = createSlice({
     error: null,
   },
   reducers: {
-    addFavourite: (state, action) => {
-      state.favourites = action.payload;
-    },
     loadMore: state => {
       state.currentPage += 1;
     },
@@ -42,24 +38,16 @@ const campersSlice = createSlice({
       state.loading = false;
     });
     builder.addCase(fetchCampers.rejected, rejectedHandler);
-
+    //////////////////////////////////////////////////////////////////
     builder.addCase(fetchCamperById.pending, pendingHandler);
     builder.addCase(fetchCamperById.fulfilled, (state, action) => {
       state.itemById = action.payload;
       state.loading = false;
     });
     builder.addCase(fetchCamperById.rejected, rejectedHandler);
+    //////////////////////////////////////////////////////////////////
   },
 });
 
-export const selectCampers = state => state.campers.items;
-export const selectCampersLoading = state => state.campers.loading;
-export const selectCampersError = state => state.campers.error;
-export const selectCamperById = state => state.campers.itemById;
-export const selectCamperFavourites = state => state.campers.favourites;
-export const selectCampersTotalItems = state => state.campers.totalItems;
-export const selectCurrentPage = state => state.campers.currentPage;
-export const selectItemsPerPage = state => state.campers.itemsPerPage;
-export const { addFavourite, loadMore, resetPagination } = campersSlice.actions;
-
+export const { loadMore, resetPagination } = campersSlice.actions;
 export default campersSlice.reducer;

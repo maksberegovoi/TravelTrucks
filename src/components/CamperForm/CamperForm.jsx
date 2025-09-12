@@ -31,10 +31,11 @@ const CamperForm = () => {
       .required("Email is required"),
     date: Yup.date()
       .min(startOfToday(), "Date cannot be in the past")
+      .max(new Date(2100, 0, 1), "Date is too far in the future")
       .required("Booking date is required"),
     comment: Yup.string().max(500, "Comment is too long (max 500 characters)"),
   });
-
+  console.log();
   const handleSubmit = (values, actions) => {
     const payload = {
       id: Date.now(),

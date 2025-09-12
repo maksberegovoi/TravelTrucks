@@ -6,14 +6,14 @@ import Location from "../../components/Location/Location.jsx";
 
 const CatalogPage = () => {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={styles.sidebar}>
         <CatalogFilter />
       </div>
       <div className={styles.catalogContainer}>
         <CatalogList />
       </div>
-    </div>
+    </section>
   );
 };
 

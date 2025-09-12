@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./CamperFeatures.module.css";
 import CamperBadges from "../CamperBadges/CamperBadges.jsx";
 import { useSelector } from "react-redux";
-import { selectCamperById } from "../../redux/campersSlice.js";
+import { selectCamperById } from "../../redux/reducers/campers/selectors.js";
 
 const CamperFeatures = () => {
   const camper = useSelector(selectCamperById);
@@ -29,7 +29,7 @@ const CamperFeatures = () => {
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoText}>Height</span>
-            <span className={styles.infoText}>camper.height</span>
+            <span className={styles.infoText}>{camper.height}</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoText}>Tank</span>

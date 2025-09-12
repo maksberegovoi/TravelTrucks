@@ -4,7 +4,7 @@ import AppRouter from "./components/AppRouter.jsx";
 import Navbar from "./components/Navbar/Navbar.jsx";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchCampers } from "./redux/campersOps.jsx";
+import { fetchCampers } from "./redux/reducers/campers/campersOps.jsx";
 import { Toaster } from "react-hot-toast";
 
 function App() {

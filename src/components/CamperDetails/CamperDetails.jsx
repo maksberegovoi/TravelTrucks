@@ -3,20 +3,18 @@ import styles from "./CamperDetails.module.css";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
 import { CAMPER_DETAILS_ROUTE } from "../../utils/consts.js";
 import iconStar from "../../assets/icons/star.svg";
-import iconLike from "../../assets/icons/like.svg";
 import iconMap from "../../assets/icons/map.svg";
 import CamperBadges from "../CamperBadges/CamperBadges.jsx";
 import { generatePath } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addFavourite,
-  selectCamperById,
-  selectCamperFavourites,
-  selectCampersLoading,
-} from "../../redux/campersSlice.js";
 import Loader from "../../UI/Loader/Loader.jsx";
-import { fetchCamperById } from "../../redux/campersOps.jsx";
-import { changeFilterEquipment } from "../../redux/filtersSlice.js";
+import { fetchCamperById } from "../../redux/reducers/campers/campersOps.jsx";
+import {
+  selectCamperById,
+  selectCampersLoading,
+} from "../../redux/reducers/campers/selectors.js";
+import { selectFavourites } from "../../redux/reducers/favourites/selectors.js";
+import { addFavourite } from "../../redux/reducers/favourites/favouritesSlice.js";
 
 const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   const dispatch = useDispatch();
@@ -26,10 +24,9 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   }, [dispatch, camperId]);
 
   const loading = useSelector(selectCampersLoading);
-  const [isLiked, setIsLiked] = useState(false);
   const [gallery, setGallery] = useState([]);
   const camperById = useSelector(selectCamperById);
-  const camperFavourites = useSelector(selectCamperFavourites);
+  const camperFavourites = useSelector(selectFavourites);
   const item = camper ? camper : camperById;
 
   const getGallery = () => {

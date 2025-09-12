@@ -1,17 +1,12 @@
 import React from "react";
 import styles from "./FavouritesPage.module.css";
-import Loader from "../../UI/Loader/Loader.jsx";
 import CamperDetails from "../../components/CamperDetails/CamperDetails.jsx";
 import { useSelector } from "react-redux";
-import {
-  selectCamperFavourites,
-  selectCampersLoading,
-} from "../../redux/campersSlice.js";
-
+import { selectFavourites } from "../../redux/reducers/favourites/selectors.js";
 const FavouritesPage = () => {
-  const favouriteCampers = useSelector(selectCamperFavourites);
+  const favouriteCampers = useSelector(selectFavourites);
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <ul className={styles.list}>
         {favouriteCampers.map(camper => (
           <li key={camper.id}>
@@ -19,7 +14,7 @@ const FavouritesPage = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

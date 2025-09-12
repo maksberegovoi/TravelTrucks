@@ -1,26 +1,24 @@
 import React, { useEffect } from "react";
 import styles from "./CatalogList.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  selectCampersError,
-  selectCampersLoading,
-  selectCampersTotalItems,
-} from "../../redux/campersSlice.js";
 import CamperDetails from "../CamperDetails/CamperDetails.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
-import {
-  selectPaginatedCampers,
-  selectHasMoreCampers,
-} from "../../redux/filtersSlice.js";
 import toast from "react-hot-toast";
-import { loadMore } from "../../redux/campersSlice.js";
+import { loadMore } from "../../redux/reducers/campers/campersSlice.js";
+import {
+  selectHasMoreCampers,
+  selectPaginatedCampers,
+} from "../../redux/reducers/filters/selectors.js";
+import {
+  selectCampersError,
+  selectCampersLoading,
+} from "../../redux/reducers/campers/selectors.js";
 
 const CatalogList = () => {
   const dispatch = useDispatch();
   const campers = useSelector(selectPaginatedCampers);
   const hasMore = useSelector(selectHasMoreCampers);
-  const total = useSelector(selectCampersTotalItems);
   const isLoading = useSelector(selectCampersLoading);
   const error = useSelector(selectCampersError);
 

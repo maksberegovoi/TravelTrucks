@@ -22,7 +22,7 @@ const CamperDetailsPage = () => {
   const { id } = useParams();
 
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <CamperDetails camperId={id} variant="detailsPage" />
       <div className={styles.tooglerContainer}>
         <h3 className={styles.toogler}>
@@ -53,7 +53,7 @@ const CamperDetailsPage = () => {
         </Suspense>
         <CamperForm />
       </div>
-    </div>
+    </section>
   );
 };
 
