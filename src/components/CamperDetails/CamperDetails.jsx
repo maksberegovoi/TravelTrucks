@@ -43,11 +43,13 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   };
 
   const selectFavourite = () => {
+    console.log("click");
     if (camperFavourites.includes(item)) {
       dispatch(addFavourite(camperFavourites.filter(favourite => favourite !== item)));
     } else {
       dispatch(addFavourite([...camperFavourites, camper]));
     }
+    console.log(camperFavourites);
   };
 
   useEffect(() => {

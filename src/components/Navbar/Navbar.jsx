@@ -7,7 +7,7 @@ import styles from "./Navbar.module.css";
 const Navbar = () => {
   return (
     <header className={styles.header}>
-      <Link to={HOME_ROUTE} className={styles.link}>
+      <Link to={HOME_ROUTE} className={styles.link} aria-label="Go to homepage">
         <Logo />
       </Link>
       <nav className={styles.navbar}>

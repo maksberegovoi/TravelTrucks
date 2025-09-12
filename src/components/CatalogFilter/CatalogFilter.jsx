@@ -81,15 +81,15 @@ const CatalogFilter = () => {
                   ? `${styles.badge} ${styles.selected}`
                   : styles.badge
               }
-              onClick={() => selectEquipment(label)}
             >
-              <img
-                className={styles.icon}
-                src={src}
-                alt={`${label} icon`}
-                aria-label={label}
-              />{" "}
-              {label}
+              <button
+                className={styles.badgeButton}
+                onClick={() => selectEquipment(label)}
+                type="button"
+              >
+                <img className={styles.icon} src={src} alt={`${label} icon`} />
+                {label}
+              </button>
             </li>
           ))}
         </ul>
@@ -105,15 +105,20 @@ const CatalogFilter = () => {
                   ? `${styles.badge} ${styles.selected}`
                   : styles.badge
               }
-              onClick={() => selectType(label)}
             >
-              <img
-                className={styles.icon}
-                src={src}
-                alt={`${label} icon`}
-                aria-label={label}
-              />{" "}
-              {key}
+              <button
+                className={styles.badgeButton}
+                type="button"
+                onClick={() => selectType(label)}
+              >
+                <img
+                  className={styles.icon}
+                  src={src}
+                  alt={`${label} icon`}
+                  aria-label={label}
+                />
+                {key}
+              </button>
             </li>
           ))}
         </ul>
