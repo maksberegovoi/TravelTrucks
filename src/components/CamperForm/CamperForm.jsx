@@ -4,20 +4,9 @@ import MyButton from "../../UI/MyButton/MyButton.jsx";
 import styles from "./CamperForm.module.css";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
-
-const todayYMD = () => {
-  const d = new Date();
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
-};
-
-const startOfToday = () => {
-  const d = new Date();
-  d.setHours(0, 0, 0, 0);
-  return d;
-};
+import MyCalendar from "../../UI/MyCalendar/MyCalendar.jsx";
+import "react-datepicker/dist/react-datepicker.css";
+import "./MyCalendar.css";
 
 const CamperForm = () => {
   const validationSchema = Yup.object({
@@ -30,18 +19,26 @@ const CamperForm = () => {
       .email("Invalid email format")
       .required("Email is required"),
     date: Yup.date()
-      .min(startOfToday(), "Date cannot be in the past")
+      .min(new Date(new Date().setHours(0, 0, 0, 0)), "Date cannot be in the" + " past")
       .max(new Date(2100, 0, 1), "Date is too far in the future")
       .required("Booking date is required"),
     comment: Yup.string().max(500, "Comment is too long (max 500 characters)"),
   });
-  console.log();
+
+  const formatDate = date => {
+    if (!date) return "";
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
   const handleSubmit = (values, actions) => {
     const payload = {
       id: Date.now(),
       name: values.name.trim(),
       email: values.email.trim(),
-      date: values.date,
+      date: formatDate(values.date) || "",
       comment: values.comment || "",
     };
     console.log(payload);
@@ -60,12 +57,11 @@ const CamperForm = () => {
             Stay connected! We are always ready to help you.
           </p>
         </div>
-
         <Formik
           initialValues={{
             name: "",
             email: "",
-            date: "",
+            date: null,
             comment: "",
           }}
           validationSchema={validationSchema}
@@ -90,15 +86,19 @@ const CamperForm = () => {
                 />
                 <ErrorMessage name="email" component="span" className={styles.error} />
 
-                <Field
-                  type="date"
+                {/*<Field*/}
+                {/*  type="date"*/}
+                {/*  name="date"*/}
+                {/*  placeholder="Booking date*"*/}
+                {/*  min={todayYMD()}*/}
+                {/*  className={styles.formInput}*/}
+                {/*/>*/}
+                {/*<ErrorMessage name="date" component="span" className={styles.error} />*/}
+                <MyCalendar
                   name="date"
-                  placeholder="Booking date*"
-                  min={todayYMD()}
-                  className={styles.formInput}
+                  classname={styles.formInput}
+                  placeholder={"Booking date*"}
                 />
-                <ErrorMessage name="date" component="span" className={styles.error} />
-
                 <Field
                   as="textarea"
                   name="comment"

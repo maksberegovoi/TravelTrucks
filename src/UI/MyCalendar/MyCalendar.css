@@ -1,0 +1,84 @@
+.react-datepicker {
+    border: 1px solid var(--color-text);
+    font-family: "Inter";
+    border-radius: 12px;
+}
+.react-datepicker__current-month {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-main);
+}
+
+.react-datepicker__day {
+    color: var(--color-main);
+}
+
+.react-datepicker__day-names {
+    border-bottom: 1px solid var(--color-text);
+    text-align: center;
+    color: var(--color-text);
+}
+/*weekdays*/
+.react-datepicker__day-name {
+    color: var(--color-text);
+}
+/*current day - visible for all months*/
+.react-datepicker__day--keyboard-selected:not(
+  .react-datepicker__day--range-start
+) {
+    border: none;
+    background: none;
+    color: inherit;
+    z-index: -1 !important;
+}
+/*current day*/
+.react-datepicker__day--today {
+    border-radius: 32px; !important;
+    border: 1px solid var(--color-text);
+    font-weight: 400 !important;
+    z-index: -1 !important;
+}
+
+.react-datepicker__header {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: white;
+    border: none;
+}
+
+.react-datepicker__day--outside-month {
+    color: var(--color-text);
+}
+
+.react-datepicker__header:not(.react-datepicker__header--has-time-select) {
+    border-top-right-radius: 12px;
+    padding-top: 14px;
+}
+
+/*change month arrows*/
+.react-datepicker__navigation-icon::before{
+    border-color: var(--color-text);
+}
+
+/*change month arrows*/
+.react-datepicker__navigation{
+    margin-top: 7px;
+}
+
+/*block with days*/
+.react-datepicker__month{
+    margin: 0;
+    padding: 12px;
+}
+
+/*triangle*/
+.react-datepicker-popper .react-datepicker__triangle{
+    stroke: var(--color-text);
+}
+
+.react-datepicker__day:not([aria-disabled=true]):hover, .react-datepicker__month-text:not([aria-disabled=true]):hover, .react-datepicker__quarter-text:not([aria-disabled=true]):hover, .react-datepicker__year-text:not([aria-disabled=true]):hover {
+    border-radius: 32px;
+    background-color: var(--color-gray-light);
+}
