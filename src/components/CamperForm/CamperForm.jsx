@@ -77,7 +77,6 @@ const CamperForm = () => {
                   className={styles.formInput}
                 />
                 <ErrorMessage name="name" component="span" className={styles.error} />
-
                 <Field
                   type="email"
                   name="email"
@@ -85,20 +84,12 @@ const CamperForm = () => {
                   className={styles.formInput}
                 />
                 <ErrorMessage name="email" component="span" className={styles.error} />
-
-                {/*<Field*/}
-                {/*  type="date"*/}
-                {/*  name="date"*/}
-                {/*  placeholder="Booking date*"*/}
-                {/*  min={todayYMD()}*/}
-                {/*  className={styles.formInput}*/}
-                {/*/>*/}
-                {/*<ErrorMessage name="date" component="span" className={styles.error} />*/}
                 <MyCalendar
                   name="date"
                   classname={styles.formInput}
                   placeholder={"Booking date*"}
                 />
+                <ErrorMessage name="date" component="span" className={styles.error} />
                 <Field
                   as="textarea"
                   name="comment"

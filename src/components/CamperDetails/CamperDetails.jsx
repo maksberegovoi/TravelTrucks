@@ -27,7 +27,7 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   const [gallery, setGallery] = useState([]);
   const camperById = useSelector(selectCamperById);
   const camperFavourites = useSelector(selectFavourites);
-  const item = camper ? camper : camperById;
+  const item = camper || camperById;
 
   const getGallery = () => {
     if (!item.gallery) return;
