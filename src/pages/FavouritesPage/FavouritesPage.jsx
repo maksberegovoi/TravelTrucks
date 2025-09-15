@@ -12,6 +12,7 @@ const FavouritesPage = () => {
 
   return (
     <section className={styles.container}>
+      {favourites?.length === 0 && <p>You haven't added any yet</p>}
       <ul className={styles.list}>
         {favouriteCampers.map(camper => (
           <li key={camper.id}>
