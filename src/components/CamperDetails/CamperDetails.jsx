@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./CamperDetails.module.css";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
-import { CAMPER_DETAILS_ROUTE } from "../../utils/consts.js";
+import { CAMPER_DETAILS_ROUTE, CATALOG_ROUTE } from "../../utils/consts.js";
 import iconStar from "../../assets/icons/star.svg";
 import iconMap from "../../assets/icons/map.svg";
 import CamperBadges from "../CamperBadges/CamperBadges.jsx";
@@ -11,6 +11,7 @@ import Loader from "../../UI/Loader/Loader.jsx";
 import { fetchCamperById } from "../../redux/reducers/campers/campersOps.jsx";
 import {
   selectCamperById,
+  selectCampersError,
   selectCampersLoading,
 } from "../../redux/reducers/campers/selectors.js";
 import { selectFavourites } from "../../redux/reducers/favourites/selectors.js";
@@ -27,6 +28,7 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   const [gallery, setGallery] = useState([]);
   const camperById = useSelector(selectCamperById);
   const camperFavourites = useSelector(selectFavourites);
+  const camperError = useSelector(selectCampersError);
   const item = camper || camperById;
 
   const getGallery = () => {
@@ -64,6 +66,16 @@ const CamperDetails = ({ camper = null, camperId = null, variant = null }) => {
   };
 
   if (loading) return <Loader />;
+
+  if (camperId && (camperError || item.length === 0)) {
+    return (
+      <div className={styles.notFound}>
+        <h2>Camper not found</h2>
+        <p>The camper you are looking for does not exist or was removed.</p>
+        <MyButton to={CATALOG_ROUTE}>Back to catalog</MyButton>
+      </div>
+    );
+  }
   return (
     <div className={containerSwitcher()}>
       <div className={styles.gallery}>

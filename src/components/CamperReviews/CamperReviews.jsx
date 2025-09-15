@@ -9,7 +9,8 @@ import Loader from "../../UI/Loader/Loader.jsx";
 const CamperReviews = () => {
   const { reviews } = useSelector(selectCamperById);
 
-  if (!reviews) return <Loader />;
+  if (reviews?.length === 0 || !reviews) return <p>There are no reviews yet...</p>;
+
   return (
     <div>
       <ul className={styles.reviews}>

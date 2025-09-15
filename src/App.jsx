@@ -12,8 +12,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCampers());
-  }, [dispatch]);
-
+  }, []);
   return (
     <BrowserRouter>
       <Navbar />
@@ -24,10 +23,10 @@ function App() {
           style: {
             background: "#363636",
             color: "#fff",
-            fontSize: "18px", // увеличиваем текст
-            padding: "20px", // увеличиваем отступы
-            minWidth: "300px", // минимальная ширина
-            borderRadius: "12px", // скругление углов
+            fontSize: "18px",
+            padding: "20px",
+            minWidth: "300px",
+            borderRadius: "12px",
           },
           success: {
             duration: 5000,
@@ -47,9 +46,9 @@ function App() {
             style: {
               background: "#FF0000",
               color: "#fff",
-              fontSize: "18px", // большой текст для ошибок
-              padding: "20px", // большие отступы
-              minWidth: "350px", // шире чем обычные
+              fontSize: "18px",
+              padding: "20px",
+              minWidth: "350px",
             },
             iconTheme: {
               primary: "red",

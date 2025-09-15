@@ -15,14 +15,14 @@ import iconGas from "../../assets/icons/badges/gas.svg";
 import iconMicrowave from "../../assets/icons/badges/microwave.svg";
 
 const CamperBadges = ({ camper, showAll = false, itemsToShow = 7 }) => {
-  const camperForm = camper.form;
   const formIcons = {
     panelTruck: iconVan,
     alcove: iconAlcove,
     fullyIntegrated: iconFullyIntegrated,
   };
-  const camperEngine = camper.engine;
-  const camperTransmission = camper.transmission;
+  const camperForm = camper?.form || "";
+  const camperEngine = camper?.engine || "";
+  const camperTransmission = camper?.transmission || "";
 
   const badges = [
     { key: "AC", label: "AC", src: iconAC },
@@ -53,6 +53,8 @@ const CamperBadges = ({ camper, showAll = false, itemsToShow = 7 }) => {
         return "unknown";
     }
   };
+
+  if (!camper || camper?.length === 0) return null;
 
   return (
     <ul className={styles.badges}>

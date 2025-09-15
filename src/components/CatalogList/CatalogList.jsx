@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./CatalogList.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import CamperDetails from "../CamperDetails/CamperDetails.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
-import toast from "react-hot-toast";
 import { loadMore } from "../../redux/reducers/campers/campersSlice.js";
 import {
   selectHasMoreCampers,
@@ -26,15 +25,9 @@ const CatalogList = () => {
     dispatch(loadMore());
   };
 
-  useEffect(() => {
-    if (error) {
-      toast.error("Error fetching data...");
-    }
-  }, [error]);
-
   return (
     <div className={styles.catalogList}>
-      {error && (
+      {error && campers?.length === 0 && (
         <div>
           <h2 className={styles.error}>Error fetching data...</h2>
         </div>
