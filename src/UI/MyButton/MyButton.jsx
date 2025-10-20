@@ -22,7 +22,7 @@ const MyButton = ({
 
   return (
     <button
-      className="text-[var(--color-background)] py-4 px-15
+      className="text-[var(--color-background)] py-4 px-10 md:px-15
       bg-[var(--color-accent)] rounded-full interactive-button"
       onClick={onClick}
       type={type}

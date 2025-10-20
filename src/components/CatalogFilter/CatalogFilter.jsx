@@ -66,7 +66,7 @@ const CatalogFilter = () => {
   }, [filterEquipment, filterType, dispatch]);
 
   return (
-    <div className="w-[350px] flex flex-col gap-5 mt-">
+    <div className="flex flex-col gap-5">
       <Location />
       <p>Filters</p>
       <div className="flex flex-col gap-8">

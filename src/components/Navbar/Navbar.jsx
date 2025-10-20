@@ -5,7 +5,7 @@ import Logo from "../../UI/Logo/Logo.jsx";
 
 const Navbar = () => {
   return (
-    <header className="flex items-center sticky top-0 w-full bg-[var(--color-background)] px-16">
+    <header className="flex items-center sticky top-0 w-full bg-[var(--color-background)] px-16 z-100 border-b border-gray-300">
       <Link to={HOME_ROUTE} aria-label="Go to homepage">
         <Logo />
       </Link>

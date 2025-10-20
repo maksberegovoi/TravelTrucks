@@ -56,7 +56,7 @@ const CamperBadges = ({ camper, showAll = false, itemsToShow = 3 }) => {
   if (!camper || camper?.length === 0) return null;
 
   return (
-    <ul className="flex gap-2 flex-wrap">
+    <ul className="flex items-center justify-start gap-2 flex-wrap">
       <li className="flex items-center justify-center gap-2 capitalize px-4.5 py-3">
         <img src={iconTransmission} alt="icon transmission" /> {camperTransmission}
       </li>
