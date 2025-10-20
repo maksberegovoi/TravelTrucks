@@ -1,10 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import iconStar from "../../assets/icons/star.svg";
-import styles from "./CamperReviews.module.css";
 import { nanoid } from "@reduxjs/toolkit";
 import { selectCamperById } from "../../redux/reducers/campers/selectors.js";
-import Loader from "../../UI/Loader/Loader.jsx";
 
 const CamperReviews = () => {
   const { reviews } = useSelector(selectCamperById);
@@ -13,23 +11,21 @@ const CamperReviews = () => {
 
   return (
     <div>
-      <ul className={styles.reviews}>
+      <ul>
         {reviews.map(review => (
-          <li key={nanoid()} className={styles.listItem}>
-            <div className={styles.heading}>
-              <div className={styles.avatar}>
-                {review.reviewer_name?.charAt(0)?.toUpperCase() || "U"}
-              </div>
-              <div className={styles.reviewer}>
-                <p className={styles.name}>{review.reviewer_name}</p>
-                <div className={styles.rating}>
+          <li key={nanoid()}>
+            <div>
+              <div>{review.reviewer_name?.charAt(0)?.toUpperCase() || "U"}</div>
+              <div>
+                <p>{review.reviewer_name}</p>
+                <div>
                   {Array.from({ length: review.reviewer_rating }, (_, index) => (
-                    <img key={index} src={iconStar} alt="star" className={styles.star} />
+                    <img key={index} src={iconStar} alt="star" />
                   ))}
                 </div>
               </div>
             </div>
-            <p className={styles.comment}>{review.comment}</p>
+            <p>{review.comment}</p>
           </li>
         ))}
       </ul>

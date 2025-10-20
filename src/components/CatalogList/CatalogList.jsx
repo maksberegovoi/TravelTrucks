@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./CatalogList.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import CamperDetails from "../CamperDetails/CamperDetails.jsx";
 import Loader from "../../UI/Loader/Loader.jsx";
@@ -26,25 +25,22 @@ const CatalogList = () => {
   };
 
   return (
-    <div className={styles.catalogList}>
+    <div className="flex flex-col gap-10 items-center">
       {error && campers?.length === 0 && (
         <div>
-          <h2 className={styles.error}>Error fetching data...</h2>
+          <h2>Error fetching data...</h2>
         </div>
       )}
-      <ul className={styles.container}>
+      <ul className="flex flex-col 2xl:grid 2xl:grid-cols-2 gap-5 place-items-center">
+        {/*<ul className="flex flex-col gap-8">*/}
         {isLoading && <Loader />}
         {campers.map(camper => (
-          <li key={camper.id}>
+          <li className="h-full w-full" key={camper.id}>
             <CamperDetails camper={camper} variant="catalogPage" />
           </li>
         ))}
       </ul>
-      {!error && hasMore && (
-        <MyButton className={styles.button} onClick={handleLoadMore}>
-          Load more
-        </MyButton>
-      )}
+      {!error && hasMore && <MyButton onClick={handleLoadMore}>Load more</MyButton>}
     </div>
   );
 };

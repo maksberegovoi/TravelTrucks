@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./FavouritesPage.module.css";
 import CamperDetails from "../../components/CamperDetails/CamperDetails.jsx";
 import { useSelector } from "react-redux";
 import { selectFavourites } from "../../redux/reducers/favourites/selectors.js";
@@ -11,9 +10,9 @@ const FavouritesPage = () => {
   const favouriteCampers = campers.filter(camper => favourites.includes(camper.id));
 
   return (
-    <section className={styles.container}>
+    <section>
       {favourites?.length === 0 && <p>You haven't added any yet</p>}
-      <ul className={styles.list}>
+      <ul>
         {favouriteCampers.map(camper => (
           <li key={camper.id}>
             <CamperDetails camper={camper} variant="catalogPage" />

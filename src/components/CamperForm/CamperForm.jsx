@@ -1,7 +1,6 @@
 import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import MyButton from "../../UI/MyButton/MyButton.jsx";
-import styles from "./CamperForm.module.css";
 import * as Yup from "yup";
 import toast from "react-hot-toast";
 import MyCalendar from "../../UI/MyCalendar/MyCalendar.jsx";
@@ -49,13 +48,11 @@ const CamperForm = () => {
   };
 
   return (
-    <div className={styles.formContainer}>
-      <div className={styles.formCard}>
-        <div className={styles.formHeader}>
-          <h3 className={styles.formTitle}>Book your campervan now</h3>
-          <p className={styles.formSubtitle}>
-            Stay connected! We are always ready to help you.
-          </p>
+    <div>
+      <div>
+        <div>
+          <h3>Book your campervan now</h3>
+          <p>Stay connected! We are always ready to help you.</p>
         </div>
         <Formik
           initialValues={{
@@ -68,39 +65,18 @@ const CamperForm = () => {
           onSubmit={handleSubmit}
         >
           {() => (
-            <Form className={styles.form}>
-              <div className={styles.formFields}>
-                <Field
-                  type="text"
-                  name="name"
-                  placeholder="Name*"
-                  className={styles.formInput}
-                />
-                <ErrorMessage name="name" component="span" className={styles.error} />
-                <Field
-                  type="email"
-                  name="email"
-                  placeholder="Email*"
-                  className={styles.formInput}
-                />
-                <ErrorMessage name="email" component="span" className={styles.error} />
-                <MyCalendar
-                  name="date"
-                  classname={styles.formInput}
-                  placeholder={"Booking date*"}
-                />
-                <ErrorMessage name="date" component="span" className={styles.error} />
-                <Field
-                  as="textarea"
-                  name="comment"
-                  placeholder="Comment"
-                  className={styles.formTextarea}
-                />
-                <ErrorMessage name="comment" component="span" className={styles.error} />
+            <Form>
+              <div>
+                <Field type="text" name="name" placeholder="Name*" />
+                <ErrorMessage name="name" component="span" />
+                <Field type="email" name="email" placeholder="Email*" />
+                <ErrorMessage name="email" component="span" />
+                {/*<MyCalendar name="date" placeholder={"Booking date*"} />*/}
+                <ErrorMessage name="date" component="span" />
+                <Field as="textarea" name="comment" placeholder="Comment" />
+                <ErrorMessage name="comment" component="span" />
               </div>
-              <MyButton type="submit" className={styles.button}>
-                Send
-              </MyButton>
+              <MyButton type="submit">Send</MyButton>
             </Form>
           )}
         </Formik>

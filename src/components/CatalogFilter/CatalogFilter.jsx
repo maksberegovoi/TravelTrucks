@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import styles from "./CatalogFilter.module.css";
 import iconVan from "../../assets/icons/badges/van.svg";
 import iconAlcove from "../../assets/icons/badges/alcove.svg";
 import iconFullyIntegrated from "../../assets/icons/badges/fullyIntegrated.svg";
@@ -67,57 +66,54 @@ const CatalogFilter = () => {
   }, [filterEquipment, filterType, dispatch]);
 
   return (
-    <div className={styles.container}>
+    <div className="w-[350px] flex flex-col gap-5 mt-">
       <Location />
-      <p className={styles.label}>Filters</p>
-      <div className={styles.filterContainer}>
-        <h3 className={styles.filterType}>Vehicle equipment</h3>
-        <ul className={styles.badges}>
+      <p>Filters</p>
+      <div className="flex flex-col gap-8">
+        <h3>Vehicle equipment</h3>
+        <ul className="grid grid-cols-3 place-items-center gap-y-2">
           {equipment.map(({ label, src }) => (
             <li
               key={label}
-              className={
-                filterEquipment.includes(label)
-                  ? `${styles.badge} ${styles.selected}`
-                  : styles.badge
-              }
+              className="flex items-center justify-center border border-[var(--color-accent)] rounded-[12px]
+              gap-5 py-5 min-w-[110px] "
+              // className={
+              //   filterEquipment.includes(label)
+              //     ? `${styles.badge} ${styles.selected}`
+              //     : styles.badge
+              // }
             >
               <button
-                className={styles.badgeButton}
+                className="flex flex-col items-center gap-2"
                 onClick={() => selectEquipment(label)}
                 type="button"
               >
-                <img className={styles.icon} src={src} alt={`${label} icon`} />
+                <img className="w-[32px] h-[32px]" src={src} alt={`${label} icon`} />
                 {label}
               </button>
             </li>
           ))}
         </ul>
-      </div>
-      <div className={styles.filterContainer}>
-        <h3 className={styles.filterType}>Vehicle equipment</h3>
-        <ul className={styles.badges}>
+        <h3>Vehicle equipment</h3>
+        <ul className="flex gap-1">
           {type.map(({ key, label, src }) => (
             <li
+              className="flex items-center justify-center border border-[var(--color-accent)] rounded-[12px]
+              gap-5 py-5 min-w-[110px] "
               key={label}
-              className={
-                filterType.includes(label)
-                  ? `${styles.badge} ${styles.selected}`
-                  : styles.badge
-              }
+              // className={
+              //   filterType.includes(label)
+              //     ? `${styles.badge} ${styles.selected}`
+              //     : styles.badge
+              // }
             >
               <button
-                className={styles.badgeButton}
+                className="flex flex-col gap-1 items-center justify-center"
                 type="button"
                 onClick={() => selectType(label)}
               >
-                <img
-                  className={styles.icon}
-                  src={src}
-                  alt={`${label} icon`}
-                  aria-label={label}
-                />
-                {key}
+                <img src={src} alt={`${label} icon`} aria-label={label} />
+                <span className="capitalize text-wrap">{key}</span>
               </button>
             </li>
           ))}

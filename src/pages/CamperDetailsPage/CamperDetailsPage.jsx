@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import styles from "./CamperDetailsPage.module.css";
 import CamperDetails from "../../components/CamperDetails/CamperDetails.jsx";
 import CamperForm from "../../components/CamperForm/CamperForm.jsx";
 import { generatePath, NavLink, Outlet, useParams } from "react-router-dom";
@@ -10,32 +9,32 @@ const CamperDetailsPage = () => {
   const { id } = useParams();
 
   return (
-    <section className={styles.container}>
+    <section>
       <CamperDetails camperId={id} variant="detailsPage" />
-      <div className={styles.tooglerContainer}>
-        <h3 className={styles.toogler}>
+      <div>
+        <h3>
           <NavLink
             to=""
             end
-            className={({ isActive }) =>
-              isActive ? `${styles.link} ${styles.active}` : styles.link
-            }
+            // className={({ isActive }) =>
+            //   isActive ? `${styles.link} ${styles.active}` : styles.link
+            // }
           >
             Features
           </NavLink>
         </h3>
-        <h3 className={styles.toogler}>
+        <h3>
           <NavLink
             to={generatePath(CAMPER_REVIEWS)}
-            className={({ isActive }) =>
-              isActive ? `${styles.link} ${styles.active}` : styles.link
-            }
+            // className={({ isActive }) =>
+            //   isActive ? `${styles.link} ${styles.active}` : styles.link
+            // }
           >
             Reviews
           </NavLink>
         </h3>
       </div>
-      <div className={styles.bottom}>
+      <div>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>

@@ -1,4 +1,3 @@
-import styles from "./CamperBadges.module.css";
 import iconTransmission from "../../assets/icons/badges/transmission.svg";
 import iconPetrol from "../../assets/icons/badges/petrol.svg";
 import iconVan from "../../assets/icons/badges/van.svg";
@@ -14,7 +13,7 @@ import iconRadio from "../../assets/icons/badges/radio.svg";
 import iconGas from "../../assets/icons/badges/gas.svg";
 import iconMicrowave from "../../assets/icons/badges/microwave.svg";
 
-const CamperBadges = ({ camper, showAll = false, itemsToShow = 7 }) => {
+const CamperBadges = ({ camper, showAll = false, itemsToShow = 3 }) => {
   const formIcons = {
     panelTruck: iconVan,
     alcove: iconAlcove,
@@ -57,18 +56,21 @@ const CamperBadges = ({ camper, showAll = false, itemsToShow = 7 }) => {
   if (!camper || camper?.length === 0) return null;
 
   return (
-    <ul className={styles.badges}>
-      <li className={styles.badge}>
+    <ul className="flex gap-2 flex-wrap">
+      <li className="flex items-center justify-center gap-2 capitalize px-4.5 py-3">
         <img src={iconTransmission} alt="icon transmission" /> {camperTransmission}
       </li>
-      <li className={styles.badge}>
+      <li className="flex items-center justify-center gap-2 capitalize px-4.5 py-3">
         <img src={iconPetrol} alt="icon engine" /> {camperEngine}
       </li>
-      <li className={styles.badge}>
+      <li className="flex items-center justify-center gap-2 capitalize px-4.5 py-3">
         <img src={formIcons[camperForm]} alt="icon form" /> {camperName()}
       </li>
       {badgesToShow.map(({ key, label, src }) => (
-        <li key={key} className={styles.badge}>
+        <li
+          key={key}
+          className="flex items-center justify-center gap-2 capitalize px-4.5 py-3"
+        >
           <img src={src} alt={`${label} icon`} /> {label}
         </li>
       ))}

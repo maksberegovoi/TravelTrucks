@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./MyButton.module.css";
 import { useNavigate } from "react-router-dom";
 
 const MyButton = ({
@@ -23,7 +22,8 @@ const MyButton = ({
 
   return (
     <button
-      className={`${styles.btn} ${className}`}
+      className="text-[var(--color-background)] py-4 px-15
+      bg-[var(--color-accent)] rounded-full interactive-button"
       onClick={onClick}
       type={type}
       {...props}

@@ -18,7 +18,7 @@ const campersSlice = createSlice({
     itemById: [],
     totalItems: 0,
     currentPage: 1,
-    itemsPerPage: 4,
+    itemsPerPage: 8,
     loading: false,
     error: null,
   },

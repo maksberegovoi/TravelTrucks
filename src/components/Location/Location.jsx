@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Location.module.css";
 import iconMap from "../../assets/icons/map.svg";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -18,15 +17,11 @@ const Location = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <p className={styles.label}>Location</p>
-      <div className={styles.location}>
+    <div>
+      <p>Location</p>
+      <div>
         <img src={iconMap} alt="Map icon" />
-        <select
-          value={selectedLocation}
-          onChange={handleLocationChange}
-          className={styles.select}
-        >
+        <select value={selectedLocation} onChange={handleLocationChange}>
           <option value="">All locations</option>
           {locations.map(location => (
             <option key={location} value={location}>
