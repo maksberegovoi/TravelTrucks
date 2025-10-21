@@ -18,7 +18,7 @@ const CamperForm = () => {
       .email("Invalid email format")
       .required("Email is required"),
     date: Yup.date()
-      .min(new Date(new Date().setHours(0, 0, 0, 0)), "Date cannot be in the" + " past")
+      .min(new Date(new Date().setHours(0, 0, 0, 0)), "Date cannot be in the past")
       .max(new Date(2100, 0, 1), "Date is too far in the future")
       .required("Booking date is required"),
     comment: Yup.string().max(500, "Comment is too long (max 500 characters)"),
@@ -48,11 +48,13 @@ const CamperForm = () => {
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          <h3>Book your campervan now</h3>
-          <p>Stay connected! We are always ready to help you.</p>
+    <div className="p-11 border border-gray-300 rounded-xl h-full w-full">
+      <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
+          <h3 className="font-semibold">Book your campervan now</h3>
+          <p className="text-[#6C717B]">
+            Stay connected! We are always ready to help you.
+          </p>
         </div>
         <Formik
           initialValues={{
@@ -65,16 +67,36 @@ const CamperForm = () => {
           onSubmit={handleSubmit}
         >
           {() => (
-            <Form>
-              <div>
-                <Field type="text" name="name" placeholder="Name*" />
-                <ErrorMessage name="name" component="span" />
-                <Field type="email" name="email" placeholder="Email*" />
-                <ErrorMessage name="email" component="span" />
-                {/*<MyCalendar name="date" placeholder={"Booking date*"} />*/}
-                <ErrorMessage name="date" component="span" />
-                <Field as="textarea" name="comment" placeholder="Comment" />
-                <ErrorMessage name="comment" component="span" />
+            <Form className="flex flex-col gap-4">
+              <div className="flex flex-col gap-3.5">
+                <Field
+                  className="p-4.5 outline-none border border-gray-300 focus:border-[var(--color-text)] rounded-xl transition"
+                  type="text"
+                  name="name"
+                  placeholder="Name*"
+                />
+                <ErrorMessage className="text-red-600" name="name" component="span" />
+                <Field
+                  className="p-4.5 outline-none border border-gray-300 focus:border-[var(--color-text)] rounded-xl transition"
+                  type="email"
+                  name="email"
+                  placeholder="Email*"
+                />
+                <ErrorMessage className="text-red-600" name="email" component="span" />
+                <MyCalendar
+                  classname="p-4.5 outline-none border border-gray-300 focus:border-[var(--color-text)] rounded-xl transition w-full"
+                  name="date"
+                  placeholder={"Booking date*"}
+                />
+                <ErrorMessage className="text-red-600" name="date" component="span" />
+                <Field
+                  className="p-4.5 outline-none border border-gray-300 focus:border-[var(--color-text)] rounded-xl transition resize-none  "
+                  as="textarea"
+                  rows={4}
+                  name="comment"
+                  placeholder="Comment"
+                />
+                <ErrorMessage className="text-red-600" name="comment" component="span" />
               </div>
               <MyButton type="submit">Send</MyButton>
             </Form>

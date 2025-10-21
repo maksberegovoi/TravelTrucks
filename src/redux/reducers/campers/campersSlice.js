@@ -6,7 +6,8 @@ const pendingHandler = state => {
   state.error = null;
 };
 
-const rejectedHandler = state => {
+const rejectedHandler = (state, action) => {
+  console.log(action.payload);
   state.loading = false;
   state.error = true;
 };

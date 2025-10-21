@@ -4,7 +4,7 @@ import CatalogFilter from "../../components/CatalogFilter/CatalogFilter.jsx";
 
 const CatalogPage = () => {
   return (
-    <section className="flex gap-10 py-5 px-2 md:px-8">
+    <section className="myContainer relative py-5">
       {/*<CatalogFilter />*/}
       <CatalogList />
     </section>

@@ -9,8 +9,10 @@ const HomePage = () => {
       style={{ backgroundImage: `url(${heroBg})` }}
       className="h-screen bg-cover bg-no-repeat bg-center text-[var(--color-background)] flex items-center"
     >
-      <div className="px-16">
-        <h1 className="text-5xl font-semibold mb-4">Campers of your dreams</h1>
+      <div className="myContainer flex flex-col justify-start items-start w-full">
+        <h1 className="text-4xl md:text-5xl font-semibold mb-4">
+          Campers of your dreams
+        </h1>
         <h2 className="mb-10">You can find everything you want in our catalog</h2>
         <MyButton to={CATALOG_ROUTE}>View Now</MyButton>
       </div>
