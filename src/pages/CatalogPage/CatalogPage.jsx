@@ -28,7 +28,7 @@ const CatalogPage = () => {
         </button>
       </div>
       <Modal isOpen={isOpen} onClose={toggle}>
-        <CatalogFilter />
+        <CatalogFilter closeFilters={toggle} />
       </Modal>
       <CatalogList />
     </section>

@@ -34,7 +34,7 @@ const Navbar = () => {
         </svg>
       </button>
       <Modal isOpen={isOpen} onClose={toggleMenu}>
-        <nav className="flex flex-col gap-10 grow justify-center items-center bg-[var(--color-background)] ">
+        <nav className="flex flex-col gap-10 grow justify-center items-center bg-[var(--color-background)] py-25 px-10">
           {navLinks.map(({ name, path }) => (
             <NavLink
               onClick={() => toggleMenu()}

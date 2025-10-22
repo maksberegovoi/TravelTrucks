@@ -22,19 +22,20 @@ import {
   changeFilterEquipment,
   changeFilterType,
 } from "../../redux/reducers/filters/filtersSlice.js";
+import MyButton from "../../UI/MyButton/MyButton.jsx";
 
-const CatalogFilter = () => {
+const CatalogFilter = ({ closeFilters }) => {
   const dispatch = useDispatch();
   const equipment = [
     { label: "AC", src: iconAC },
-    { label: "bathroom", src: iconBathroom },
-    { label: "kitchen", src: iconKitchen },
+    { label: "Bathroom", src: iconBathroom },
+    { label: "Kitchen", src: iconKitchen },
     { label: "TV", src: iconTV },
-    { label: "radio", src: iconRadio },
-    { label: "water", src: iconWater },
-    { label: "gas", src: iconGas },
-    { label: "microwave", src: iconMicrowave },
-    { label: "refrigerator", src: iconRefrigator },
+    { label: "Radio", src: iconRadio },
+    { label: "Water", src: iconWater },
+    { label: "Gas", src: iconGas },
+    { label: "Microwave", src: iconMicrowave },
+    { label: "Refrigerator", src: iconRefrigator },
   ];
   const type = [
     { key: "van", label: "panelTruck", src: iconVan },
@@ -66,7 +67,7 @@ const CatalogFilter = () => {
   }, [filterEquipment, filterType, dispatch]);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 h-full py-8 px-5">
       <Location />
       <p className="text-[#6C717B]">Filters</p>
       <div className="flex flex-col gap-4">
@@ -76,7 +77,7 @@ const CatalogFilter = () => {
         >
           Vehicle equipment
         </h3>
-        <ul className="grid grid-cols-2 md:grid-cols-3 place-items-center gap-y-2">
+        <ul className="grid grid-cols-2 md:grid-cols-3 place-items-center gap-y-2 capitalize">
           {equipment.map(({ label, src }) => (
             <li
               key={label}
@@ -84,7 +85,7 @@ const CatalogFilter = () => {
               gap-5 py-5 min-w-[110px] ${filterEquipment.includes(label) && "border border-[var(--color-accent)]"}`}
             >
               <button
-                className="flex flex-col items-center gap-2 cursor-pointer w-full h-full"
+                className="flex flex-col items-center gap-2 cursor-pointer w-full h-full capitalize"
                 onClick={() => selectEquipment(label)}
                 type="button"
               >
@@ -112,6 +113,9 @@ const CatalogFilter = () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div className="mt-auto flex items-center justify-center pb-5">
+        <MyButton handleClick={closeFilters}>Close Filters</MyButton>
       </div>
     </div>
   );
