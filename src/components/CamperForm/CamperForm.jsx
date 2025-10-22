@@ -51,7 +51,7 @@ const CamperForm = () => {
     <div className="p-11 border border-gray-300 rounded-xl h-full w-full">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-4">
-          <h3 className="font-semibold">Book your campervan now</h3>
+          <h3 className="font-semibold text-2xl md:text-3xl">Book your campervan now</h3>
           <p className="text-[#6C717B]">
             Stay connected! We are always ready to help you.
           </p>
