@@ -10,7 +10,7 @@ const CamperReviews = () => {
   if (reviews?.length === 0 || !reviews) return <p>There are no reviews yet...</p>;
 
   return (
-    <ul className="flex-col flex gap-10 h-full overflow-auto max-h-[400px] md:max-h-[600px]">
+    <ul className="flex-col flex gap-10 w-full h-full overflow-auto max-h-[400px] md:max-h-[600px]">
       {reviews.map(review => (
         <li
           key={nanoid()}

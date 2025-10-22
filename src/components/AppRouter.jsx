@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect, useRef } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes/routes.js";
 import Loader from "../UI/Loader/Loader.jsx";
