@@ -4,15 +4,19 @@ An app created to make camper rentals easier. It lets users browse available cam
 
 ## Home page
 
-<img width="1899" height="917" alt="image" src="https://github.com/user-attachments/assets/18224003-f71e-4554-a3e7-c8bb92ce2910" />
+<img width="1901" height="907" alt="image" src="https://github.com/user-attachments/assets/8abe35b9-76c6-4a8b-a612-bab712ad408d" />
 
 ## Catalog page
 
-<img width="1903" height="918" alt="image" src="https://github.com/user-attachments/assets/bb98ba06-2233-4faf-a159-3b9380651b5c" />
+<img width="1897" height="906" alt="image" src="https://github.com/user-attachments/assets/8b4cd98c-32b4-40e7-b965-1307381e6f11" />
 
 ## Details page
 
-<img width="1902" height="907" alt="image" src="https://github.com/user-attachments/assets/e132e1be-47bd-458d-97f8-445abb64d314" />
+<img width="1071" height="747" alt="image" src="https://github.com/user-attachments/assets/220150a3-8f40-4d3c-bee9-d20ca56b11d2" />
+
+## Favourites page
+
+<img width="1900" height="905" alt="image" src="https://github.com/user-attachments/assets/3a3df46e-d48f-4dd8-a987-d45d5b4d06dd" />
 
 
 ## 🛠️ Tech Stack
