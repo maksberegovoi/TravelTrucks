@@ -10,7 +10,7 @@ const FavouritesPage = () => {
   const favouriteCampers = campers.filter(camper => favourites.includes(camper.id));
 
   return (
-    <section className="px-2 md:px-8">
+    <section className="myContainer md:px-8">
       {favourites?.length === 0 && <p>You haven't added any yet</p>}
       <ul className="flex flex-col gap-4 ">
         {favouriteCampers.map(camper => (
