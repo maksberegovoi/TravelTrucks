@@ -27,12 +27,11 @@ const CatalogList = () => {
   return (
     <div className="flex flex-col gap-10 items-center">
       {error && campers?.length === 0 && (
-        <div>
-          <h2>Error fetching data...</h2>
+        <div className="text-center">
+          <h2 className="text-5xl">Error fetching data...</h2>
         </div>
       )}
       <ul className="flex flex-col 2xl:grid 2xl:grid-cols-2 gap-5 place-items-center">
-        {/*<ul className="flex flex-col gap-8">*/}
         {isLoading && <Loader />}
         {campers.map(camper => (
           <li className="h-full w-full" key={camper.id}>

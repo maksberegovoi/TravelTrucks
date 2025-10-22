@@ -18,10 +18,14 @@ const Location = () => {
 
   return (
     <div>
-      <p>Location</p>
-      <div>
+      <p className="text-[#6C717B] mb-3">Location</p>
+      <div className="flex gap-2 pl-4">
         <img src={iconMap} alt="Map icon" />
-        <select value={selectedLocation} onChange={handleLocationChange}>
+        <select
+          className="cursor-pointer outline-none"
+          value={selectedLocation}
+          onChange={handleLocationChange}
+        >
           <option value="">All locations</option>
           {locations.map(location => (
             <option key={location} value={location}>

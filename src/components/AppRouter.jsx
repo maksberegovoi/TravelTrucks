@@ -1,5 +1,5 @@
-import React, { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { Suspense, useEffect } from "react";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { publicRoutes } from "../routes/routes.js";
 import Loader from "../UI/Loader/Loader.jsx";
 

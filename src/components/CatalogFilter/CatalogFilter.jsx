@@ -68,23 +68,23 @@ const CatalogFilter = () => {
   return (
     <div className="flex flex-col gap-5">
       <Location />
-      <p>Filters</p>
-      <div className="flex flex-col gap-8">
-        <h3>Vehicle equipment</h3>
-        <ul className="grid grid-cols-3 place-items-center gap-y-2">
+      <p className="text-[#6C717B]">Filters</p>
+      <div className="flex flex-col gap-4">
+        <h3
+          className="
+        font-semibold"
+        >
+          Vehicle equipment
+        </h3>
+        <ul className="grid grid-cols-2 md:grid-cols-3 place-items-center gap-y-2">
           {equipment.map(({ label, src }) => (
             <li
               key={label}
-              className="flex items-center justify-center border border-[var(--color-accent)] rounded-[12px]
-              gap-5 py-5 min-w-[110px] "
-              // className={
-              //   filterEquipment.includes(label)
-              //     ? `${styles.badge} ${styles.selected}`
-              //     : styles.badge
-              // }
+              className={`flex items-center justify-center rounded-[12px]
+              gap-5 py-5 min-w-[110px] ${filterEquipment.includes(label) && "border border-[var(--color-accent)]"}`}
             >
               <button
-                className="flex flex-col items-center gap-2"
+                className="flex flex-col items-center gap-2 cursor-pointer w-full h-full"
                 onClick={() => selectEquipment(label)}
                 type="button"
               >
@@ -94,21 +94,15 @@ const CatalogFilter = () => {
             </li>
           ))}
         </ul>
-        <h3>Vehicle equipment</h3>
-        <ul className="flex gap-1">
+        <h3 className="font-semibold">Vehicle equipment</h3>
+        <ul className="grid grid-cols-2 md:grid-cols-3 place-items-center gap-y-2">
           {type.map(({ key, label, src }) => (
             <li
-              className="flex items-center justify-center border border-[var(--color-accent)] rounded-[12px]
-              gap-5 py-5 min-w-[110px] "
-              key={label}
-              // className={
-              //   filterType.includes(label)
-              //     ? `${styles.badge} ${styles.selected}`
-              //     : styles.badge
-              // }
+              className={`flex items-center justify-center rounded-[12px]
+              gap-5 py-5 min-w-[110px] ${filterType.includes(label) && "border border-[var(--color-accent)]"}`}
             >
               <button
-                className="flex flex-col gap-1 items-center justify-center"
+                className="flex flex-col gap-1 items-center justify-center cursor-pointer w-full h-full"
                 type="button"
                 onClick={() => selectType(label)}
               >

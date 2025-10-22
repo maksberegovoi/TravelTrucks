@@ -9,7 +9,7 @@ const CamperDetailsPage = () => {
   const { id } = useParams();
 
   return (
-    <section className="myContainer flex flex-col gap-10 py-5">
+    <section className="myContainer flex flex-col gap-10">
       <CamperDetails camperId={id} variant="detailsPage" />
       <div
         className="flex gap-6 items-center justify-start
