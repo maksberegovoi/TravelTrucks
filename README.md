@@ -25,10 +25,11 @@ An app created to make camper rentals easier. It lets users browse available cam
 - 🗂️ **Redux Toolkit** — global state management  
 - 🧭 **React Router** — client-side routing  
 - 🔌 **Axios** — API requests handling  
-- 🎨 **Tailwind** — adaptive styling  
+- 🎨 **Tailwind CSS** — responsive design with utility-first styling
 - ☁️ **Vercel** — deployment & hosting
 
 ### 🔧 Additional Libraries
 - 📝 **Formik + Yup** — form handling & validation  
 - 🔔 **React Hot Toast** — toast notifications  
 - 💾 **Redux Persist** — state persistence in local storage
+- 🧩 **Custom Breadcrumbs Component** — dynamic navigation built with React Router
