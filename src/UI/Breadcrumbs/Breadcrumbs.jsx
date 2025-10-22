@@ -20,7 +20,7 @@ const Breadcrumbs = ({ customNames = {} }) => {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="myContainer py-4 bg-gray-50">
+    <nav aria-label="Breadcrumb" className="myContainer py-4">
       <ol className="flex items-center space-x-2 text-sm">
         <li className="flex items-center">
           <Link
