@@ -88,6 +88,7 @@ const CatalogFilter = ({ closeFilters }) => {
                 className="flex flex-col items-center gap-2 cursor-pointer w-full h-full capitalize"
                 onClick={() => selectEquipment(label)}
                 type="button"
+                aria-label={label}
               >
                 <img className="w-[32px] h-[32px]" src={src} alt={`${label} icon`} />
                 {label}
@@ -106,6 +107,7 @@ const CatalogFilter = ({ closeFilters }) => {
                 className="flex flex-col gap-1 items-center justify-center cursor-pointer w-full h-full"
                 type="button"
                 onClick={() => selectType(label)}
+                aria-label={label}
               >
                 <img src={src} alt={`${label} icon`} aria-label={label} />
                 <span className="capitalize text-wrap">{key}</span>

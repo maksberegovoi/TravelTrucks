@@ -17,6 +17,7 @@ const CatalogPage = () => {
         <button
           className="cursor-pointer active:scale-90 hover:scale-110"
           onClick={toggle}
+          aria-label="open filters"
         >
           <svg className="w-[45px] h-[45px]" viewBox="0 0 32 32">
             <path
